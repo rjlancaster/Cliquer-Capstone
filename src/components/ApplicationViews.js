@@ -26,7 +26,7 @@ export default class ApplicationViews extends Component {
     return (
       <React.Fragment>
         <Route exact path="/" render={(props) => {
-          return <RecsList recs={this.state.shows}/>
+          return <RecsList shows={this.state.shows}/>
         }} />
         <Route path="/history" render={(props) => {
           return <HistoryList />

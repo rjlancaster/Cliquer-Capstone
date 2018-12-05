@@ -16,3 +16,17 @@ export default class Cliquer extends Component {
         );
     }
 }
+
+
+// this.props.shows.map(shows => {
+//   // console.log(this.showlist(shows.apiID))
+//   this.showlist(shows.apiID)
+//     .then (data => {
+//       console.log(data)
+//       let test = data
+//     return (<div key={shows.id}>
+//     <p> Hello </p>
+//       <img src={test} alt="hi"/>
+//     </div>)
+//     })
+// }
