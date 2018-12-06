@@ -1,0 +1,9 @@
+.recs {
+  display: flex;
+  flex-direction: row;
+}
+
+.poster-Image {
+  margin: 20px;
+
+}

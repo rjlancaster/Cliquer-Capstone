@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 // import DataManager from "../../module/DataManager"
+import "./Recs.css"
 
 export default class RecsList extends Component {
   state = {
@@ -14,8 +15,8 @@ export default class RecsList extends Component {
         .then(data => data.json())
         .then(data => {
           let showItem = data.poster_path;
-          let movieImageUrl = `https://image.tmdb.org/t/p/w500${showItem}`
-          images.push(movieImageUrl)
+          let posterUrl = `https://image.tmdb.org/t/p/w185${showItem}`
+          images.push(posterUrl)
           this.setState({images: images})
         })
     })
@@ -26,9 +27,8 @@ export default class RecsList extends Component {
       <section className="recs">
         {
           this.state.images.map(image => {
-            // console.log(this.showlist(shows.apiID))
-            return (<div>
-              <img src={image} alt="tv-poster" />
+            return (<div className="poster-Group">
+              <img onClick={() => console.log("clicked")} className="poster-Image" src={image} alt="tv-poster" />
             </div>
             )
           }
