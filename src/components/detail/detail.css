@@ -1,4 +1,14 @@
 .detail-group {
   display: flex;
   flex-direction: row;
+  background-color: darkslategrey;
+  color: white;
 }
+
+.modal-container {
+  position: relative;
+}
+/* .modal-container .modal, .modal-container .modal-backdrop {
+  position: absolute;
+} */
+
