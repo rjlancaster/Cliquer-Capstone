@@ -4,13 +4,17 @@ import DetailsModal from "../detail/detailsModal"
 import "./Recs.css"
 
 export default class RecsList extends Component {
+  credentials = JSON.parse(localStorage.getItem('credentials'))
+
   state = {
     showArray: []
   }
 
   componentDidMount() {
     let showArray = []
-    this.props.shows.map(show => {
+    this.props.shows.filter((show => this.credentials.id === show.recipientID))
+      .map(show => {
+      if (show.rating === 0){
       const url = `https://api.themoviedb.org/3/tv/${show.apiID}?api_key=71beceaec7947e27f4fa92aadc09db8c`
       return fetch(url)
         .then(data => data.json())
@@ -20,11 +24,14 @@ export default class RecsList extends Component {
             image: data.poster_path,
             title: data.original_name,
             synopsis: data.overview,
-            apiID: data.id
+            apiID: data.id,
+            userID: this.credentials.id
           }
           showArray.push(showObject)
           this.setState({ showArray: showArray })
+
         })
+      }
     })
   }
 
