@@ -23,9 +23,9 @@ export default class Search extends Component {
     return fetch(url)
       .then(data => data.json())
       .then(data => {
-        console.log(data.results)
         return data.results.map(data => {
-          let selectedShowObject = {
+          if (data.poster_path) {
+            let selectedShowObject = {
             image: data.poster_path,
             title: data.original_name,
             synopsis: data.overview,
@@ -33,7 +33,9 @@ export default class Search extends Component {
             credentials: credentials.id
           }
           return selectedShows.push(selectedShowObject)
+        }
         })
+
 
       })
       .then(() => this.setState({selectedShows: selectedShows}))

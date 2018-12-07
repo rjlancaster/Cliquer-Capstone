@@ -4,7 +4,7 @@ import RecsList from './recs/RecsList'
 import HistoryList from './history/HistoryList'
 import FriendsList from './friends/FriendsList'
 import Search from './search/Search'
-import Detail from './detail/Detail'
+import DetailsModal from './detail/detailsModal'
 
 
 export default class ApplicationViews extends Component {
@@ -63,7 +63,7 @@ export default class ApplicationViews extends Component {
           return <Search />
         }} />
         <Route path="/detail" render={(props) => {
-          return <Detail shows={this.state.shows} {...props}/>
+          return <DetailsModal shows={this.state.shows} {...props}/>
         }} />
       </React.Fragment>
     )
