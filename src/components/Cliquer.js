@@ -5,6 +5,7 @@ import "./Cliquer.css"
 import "bootstrap/dist/css/bootstrap.min.css"
 
 export default class Cliquer extends Component {
+
   render() {
     return <React.Fragment>
       <Navbar {...this.props} />
