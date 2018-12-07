@@ -12,6 +12,10 @@ export default class DetailsModal extends React.Component {
     this.toggle = this.toggle.bind(this);
   }
 
+  // upVote = () => {
+  //   this.props.shows.rating
+  // }
+
   toggle() {
     this.setState({
       modal: !this.state.modal

@@ -63,7 +63,7 @@ export default class ApplicationViews extends Component {
           return <Search />
         }} />
         <Route path="/detail" render={(props) => {
-          return <DetailsModal shows={this.state.shows} {...props}/>
+          return <DetailsModal shows={this.state.shows} users={this.state.users} friends={this.state.friends}{...props}/>
         }} />
       </React.Fragment>
     )
