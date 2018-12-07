@@ -1,0 +1,15 @@
+.searchList {
+  display: flex;
+  flex-direction: row;
+}
+
+.detail-group {
+  display: flex;
+  flex-direction: row;
+  background-color: darkslategrey;
+  color: white;
+}
+
+.modal-container {
+  position: relative;
+}

@@ -5,7 +5,7 @@ import SearchList from "./SearchList"
 export default class Search extends Component {
 
   state = {
-    selectedShow: {}
+    selectedShows: []
   }
 
   // Update state whenever an input field is edited
@@ -16,22 +16,27 @@ export default class Search extends Component {
   }
 
   constructNewSearch = evt => {
+    let selectedShows = []
     evt.preventDefault()
     const credentials = JSON.parse(localStorage.getItem('credentials'))
     const url = `https://api.themoviedb.org/3/search/multi?api_key=71beceaec7947e27f4fa92aadc09db8c&language=en-US&include_adult=false&query=${this.state.search}`
     return fetch(url)
       .then(data => data.json())
       .then(data => {
-        let selectedShowObject = {
-          image: data.results.poster_path,
-          title: data.results.original_name,
-          synopsis: data.results.overview,
-          apiID: data.results.id,
-          credentials: credentials.id
-        }
-        console.log(selectedShowObject)
-        this.setState({ selectedShow: selectedShowObject });
+        console.log(data.results)
+        return data.results.map(data => {
+          let selectedShowObject = {
+            image: data.poster_path,
+            title: data.original_name,
+            synopsis: data.overview,
+            apiID: data.id,
+            credentials: credentials.id
+          }
+          return selectedShows.push(selectedShowObject)
+        })
+
       })
+      .then(() => this.setState({selectedShows: selectedShows}))
   }
 
   render() {
@@ -46,7 +51,7 @@ export default class Search extends Component {
             placeholder="Enter TV Show Title" />
           <button type="submit" onClick={this.constructNewSearch} className="btn btn-primary">Submit</button>
         </div>
-        {/* <SearchList selectedShow={this.state.seldectedShow}/> */}
+        <SearchList selectedShow={this.state.selectedShows}/>
       </React.Fragment>
     )
   }

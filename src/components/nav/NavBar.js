@@ -25,13 +25,8 @@ class NavBar extends Component {
           <li className="nav-item">
             <Link className="nav-link" to="/search">Search</Link>
           </li>
-          <li>
-            <button
-              type="button"
-              className="btn btn-success"
-              onClick={this.logout}>
-              Logout
-            </button>
+          <li className="nav-item">
+            <Link className="nav-link" onClick={this.logout} to="/login">Logout</Link>
           </li>
         </ul>
       </nav>
