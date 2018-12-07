@@ -24,7 +24,8 @@ export default class RecsList extends Component {
             image: data.poster_path,
             title: data.original_name,
             synopsis: data.overview,
-            apiID: data.id
+            apiID: data.id,
+            userID: this.credentials.id
           }
           showArray.push(showObject)
           this.setState({ showArray: showArray })

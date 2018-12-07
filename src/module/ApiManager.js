@@ -71,7 +71,7 @@ export default Object.create(null, {
 
   edit: {
     value: (resource, id, item) => {
-      return fetch(`${remoteSearchURL}/${resource}/${id}`, {
+      return fetch(`${remoteURL}/${resource}/${id}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json"

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button, Modal, ModalBody, ModalFooter } from 'reactstrap';
 import "./detail.css"
+import ApiManager from "../../module/ApiManager"
 
 export default class DetailsModal extends React.Component {
   constructor(props) {
@@ -12,9 +13,25 @@ export default class DetailsModal extends React.Component {
     this.toggle = this.toggle.bind(this);
   }
 
-  // upVote = () => {
-  //   this.props.shows.rating
-  // }
+  upVote = () => {
+    const upVote = {
+      rating: 1
+    }
+    ApiManager.edit("shows", this.props.show.showId, upVote)
+    .then(this.setState({
+      modal: !this.state.modal
+    }))
+  }
+
+  downVote = () => {
+    const downVote = {
+      rating: 2
+    }
+    ApiManager.edit("shows", this.props.show.showId, downVote)
+    this.setState({
+      modal: !this.state.modal
+    })
+  }
 
   toggle() {
     this.setState({
@@ -39,8 +56,8 @@ export default class DetailsModal extends React.Component {
             </div >
           </ModalBody>
           <ModalFooter>
-            <Button color="primary" onClick={this.toggle}>Love It!</Button>
-            <Button color="secondary" onClick={this.toggle}>Hate It!</Button>
+            <Button color="primary" onClick={this.upVote}>Love It!</Button>
+            <Button color="secondary" onClick={this.downVote}>Hate It!</Button>
           </ModalFooter>
         </Modal>
       </div>

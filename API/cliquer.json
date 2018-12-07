@@ -14,15 +14,15 @@
   "shows": [
     {
       "id": 1,
-      "requesterID": 1,
+      "requesterID": 2,
       "recipientID": 1,
       "apiID": 61671,
       "rating": 0
     },
     {
       "id": 2,
-      "requesterID": 2,
-      "recipientID": 1,
+      "requesterID": 1,
+      "recipientID": 2,
       "apiID": 4608,
       "rating": 1
     }
