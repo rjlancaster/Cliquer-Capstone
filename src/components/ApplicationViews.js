@@ -28,6 +28,7 @@ export default class ApplicationViews extends Component {
   )
 }
 
+
   componentDidMount() {
     const newState = {}
 
@@ -44,10 +45,13 @@ export default class ApplicationViews extends Component {
 }
 
   render() {
+    if (! this.state.shows.length) {
+      return null
+    }
     return (
       <React.Fragment>
         <Route exact path="/" render={(props) => {
-          return <RecsList delete={this.deleteshow} shows={this.state.shows} />
+          return <RecsList delete={this.deleteshow} shows={this.state.shows} {...props} />
         }} />
         <Route path="/history" render={(props) => {
           return <HistoryList delete={this.deleteshow} shows={this.state.shows} />
@@ -59,7 +63,7 @@ export default class ApplicationViews extends Component {
           return <Search />
         }} />
         <Route path="/detail" render={(props) => {
-          return <Detail shows={this.state.shows} />
+          return <Detail shows={this.state.shows} {...props}/>
         }} />
       </React.Fragment>
     )
