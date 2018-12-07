@@ -5,14 +5,10 @@ import "./Cliquer.css"
 import "bootstrap/dist/css/bootstrap.min.css"
 
 export default class Cliquer extends Component {
-    render() {
-        return (
-            <div>
-              <React.Fragment>
-                <Navbar />
-                <ApplicationViews />
-              </React.Fragment>
-            </div>
-        );
-    }
+  render() {
+    return <React.Fragment>
+      <Navbar {...this.props} />
+      <ApplicationViews {...this.props} />
+    </React.Fragment>
+  }
 }

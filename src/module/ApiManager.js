@@ -1,6 +1,6 @@
 // const localURL = "http://localhost:5002"
 const remoteSearchURL = `https://api.themoviedb.org/3/search/multi?api_key=71beceaec7947e27f4fa92aadc09db8c&language=en-US&include_adult=false&query=`
-
+const remoteURL = "http://localhost:5002"
 const apiKey = "71beceaec7947e27f4fa92aadc09db8"
 const localtoremoteSearchURL = `https://api.themoviedb.org/3/tv/`
 
@@ -8,7 +8,7 @@ export default Object.create(null, {
 
   getRemoteSearch: {
     value: (item) => {
-      return fetch (`${localtoremoteSearchURL}${item}?api_key=${apiKey}&language=en-US`)
+      return fetch(`${localtoremoteSearchURL}${item}?api_key=${apiKey}&language=en-US`)
         .then(result => result.json())
     }
   },
@@ -57,15 +57,15 @@ export default Object.create(null, {
   },
 
   add: {
-    value: (resource, item) => {
-      return fetch(`${remoteSearchURL}/${resource}`, {
+    value: function(resource, newObject) {
+      return fetch(`${remoteURL}/${resource}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
         },
-        body: JSON.stringify(item)
-      })
-        .then(result => result.json())
+        body: JSON.stringify(newObject)
+      }).then(e => e.json())
+        .then(() => this.all(resource))
     }
   },
 
@@ -79,6 +79,20 @@ export default Object.create(null, {
         body: JSON.stringify(item)
       })
         .then(result => result.json())
+    }
+  },
+  searchNP: {
+    value: function (username, password) {
+      return fetch(
+        `${remoteURL}/users?username=${username}&password=${password}`
+      ).then(e => e.json())
+    }
+  },
+  searchUsername: {
+    value: function (username) {
+      return fetch(`${remoteURL}/users?username=${username}`).then(e =>
+        e.json()
+      )
     }
   }
 
