@@ -9,7 +9,7 @@ import ApiManager from '../module/ApiManager'
 
 
 export default class ApplicationViews extends Component {
-  credentials = JSON.parse(localStorage.getItem('credentials.id'))
+  credentials = JSON.parse(sessionStorage.getItem('credentials'))
   state = {
     users: [],
     shows: [],
@@ -124,7 +124,7 @@ export default class ApplicationViews extends Component {
           return <HistoryList delete={this.deleteshow} shows={this.state.shows} />
         }} />
         <Route path="/friends" render={(props) => {
-          return <FriendsList friends={this.state.friends} />
+          return <FriendsList relationships={this.state.relationships} friendsArray={this.state.friendsArray} findFriends={this.findFriends}/>
         }} />
         <Route path="/search" render={(props) => {
           return <Search />

@@ -43,6 +43,11 @@
       "id": 2,
       "userId": 2,
       "friendId": 1
+    },
+    {
+      "id": 3,
+      "userId": 1,
+      "friendId": 3
     }
   ]
 }
