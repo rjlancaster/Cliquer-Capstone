@@ -48,14 +48,14 @@ export default Object.create(null, {
   },
 
   getData: {
-    value: function (resource) {
+    value: (resource) => {
       return fetch(`${localURL}/${resource}`)
         .then(response => response.json())
     }
   },
 
   saveData: {
-    value: function (resource, entryObject) {
+    value: (resource, entryObject) => {
       return fetch(`${localURL}/${resource}`, {
         method: "POST",
         headers: {
@@ -94,7 +94,7 @@ export default Object.create(null, {
   searchNP: {
     value: function (username, password) {
       return fetch(
-        `${localURL}/users?username=${username}&password=${password}`
+        `${localURL}/users?email=${username}&password=${password}`
       ).then(e => e.json())
     }
   },

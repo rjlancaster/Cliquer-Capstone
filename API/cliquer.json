@@ -2,14 +2,20 @@
   "users": [
     {
       "id": 1,
-      "email": "rjlancaster@gmail.com",
+      "email": "rich@rich.com",
       "password": "123"
     },
     {
       "id": 2,
-      "email": "william.g.morgan@gmail.com",
+      "email": "will@will.com",
+      "password": "123"
+    },
+    {
+      "id": 3,
+      "email": "mark@mark.com",
       "password": "123"
     }
+
   ],
   "shows": [
     {
