@@ -1,6 +1,5 @@
-// const localURL = "http://localhost:5002"
+const localURL = "http://localhost:5002"
 const remoteSearchURL = `https://api.themoviedb.org/3/search/multi?api_key=71beceaec7947e27f4fa92aadc09db8c&language=en-US&include_adult=false&query=`
-const remoteURL = "http://localhost:5002"
 const apiKey = "71beceaec7947e27f4fa92aadc09db8"
 const localtoremoteSearchURL = `https://api.themoviedb.org/3/tv/`
 
@@ -48,30 +47,40 @@ export default Object.create(null, {
     }
   },
 
-  delete: {
-    value: (resource, id) => {
-      return fetch(`${remoteSearchURL}/${resource}/${id}`, {
-        method: "DELETE"
-      }).then(result => result.json())
+  getData: {
+    value: function (resource) {
+      return fetch(`${localURL}/${resource}`)
+        .then(response => response.json())
     }
   },
 
-  add: {
-    value: function(resource, newObject) {
-      return fetch(`${remoteURL}/${resource}`, {
+  saveData: {
+    value: function (resource, entryObject) {
+      return fetch(`${localURL}/${resource}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
         },
-        body: JSON.stringify(newObject)
-      }).then(e => e.json())
-        .then(() => this.all(resource))
+        body: JSON.stringify(entryObject)
+
+      })
+        .then(result => result.json())
     }
   },
 
-  edit: {
+  deleteData: {
+    value: (resource, id) => {
+      return fetch(`${localURL}/${resource}/${id}`, {
+        method: "DELETE"
+      })
+        .then(result => result.json())
+    }
+  },
+
+
+  editData: {
     value: (resource, id, item) => {
-      return fetch(`${remoteURL}/${resource}/${id}`, {
+      return fetch(`${localURL}/${resource}/${id}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json"
@@ -81,19 +90,33 @@ export default Object.create(null, {
         .then(result => result.json())
     }
   },
+
   searchNP: {
     value: function (username, password) {
       return fetch(
-        `${remoteURL}/users?username=${username}&password=${password}`
+        `${localURL}/users?username=${username}&password=${password}`
       ).then(e => e.json())
     }
   },
+
   searchUsername: {
     value: function (username) {
-      return fetch(`${remoteURL}/users?username=${username}`).then(e =>
+      return fetch(`${localURL}/users?username=${username}`).then(e =>
         e.json()
       )
     }
-  }
+  },
 
 })
+        // add: {
+        //   value: function(resource, newObject) {
+        //     return fetch(`${localURL}/${resource}`, {
+        //       method: "POST",
+        //       headers: {
+        //         "Content-Type": "application/json"
+        //       },
+        //       body: JSON.stringify(newObject)
+        //     }).then(e => e.json())
+        //       .then(() => this.all(resource))
+        //   }
+        // },

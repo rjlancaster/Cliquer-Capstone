@@ -27,16 +27,16 @@
       "rating": 1
     }
   ],
-  "friends": [
+  "relationships": [
     {
       "id": 1,
-      "selfID": 1,
-      "friendID": 2
+      "userId": 1,
+      "friendId": 2
     },
     {
       "id": 2,
-      "selfID": 2,
-      "friendID": 1
+      "userId": 2,
+      "friendId": 1
     }
   ]
 }
