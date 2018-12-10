@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import ApiManager from "../../module/ApiManager"
 
 export default class FriendsList extends Component {
   credentials = JSON.parse(sessionStorage.getItem('credentials'))
@@ -16,6 +17,31 @@ export default class FriendsList extends Component {
 
   componentDidMount() {
     this.props.findFriends(this.credentials)
+  }
+
+  addRelationship = () => {
+    let currentUserId = this.credentials
+    let userIdArray = []
+    userIdArray.push(this.props.users.find(user => user.email === this.state.addFriend))
+    let object = {
+      userId: currentUserId,
+      friendId: userIdArray[0].id
+    }
+    return ApiManager.saveData("relationships", object)
+      .then(() => this.props.findFriends(currentUserId))
+  }
+
+  removeRelationship = () => {
+    let currentUserId = this.credentials
+    let userIdArray = []
+    let userFriendMatch = []
+    userIdArray.push(this.props.users.find(user => user.email === this.state.delFriend))
+    userFriendMatch.push(this.props.relationships.find(user => user.friendId === userIdArray[0].id && user.userId === currentUserId))
+    console.log(userFriendMatch)
+    return ApiManager.deleteData("relationships", userFriendMatch[0].id)
+      .then(() => {
+        return this.props.findFriends(currentUserId)
+      })
   }
 
   render() {
@@ -40,8 +66,8 @@ export default class FriendsList extends Component {
             onChange={this.handleFieldChange}
             className="showInput"
             type="text"
-            id="friendId" />
-          <button type="submit" onClick={this.props.addRelationship} className="btn btn-primary">Submit</button>
+            id="addFriend" />
+          <button type="submit" onClick={this.addRelationship} className="btn btn-primary">Submit</button>
         </section>
         <section className="removeFriend">
           <p>Remove a friend:</p>
@@ -49,8 +75,8 @@ export default class FriendsList extends Component {
             onChange={this.handleFieldChange}
             className="showInput"
             type="text"
-            id="friendId" />
-          <button type="submit" onClick={this.props.removeRelationship} className="btn btn-primary">Submit</button>
+            id="delFriend" />
+          <button type="submit" onClick={this.removeRelationship} className="btn btn-primary">Submit</button>
         </section>
       </React.Fragment>
     )

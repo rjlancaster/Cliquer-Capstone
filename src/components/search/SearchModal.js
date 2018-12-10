@@ -4,7 +4,7 @@ import ApiManager from "../../module/ApiManager"
 // import ApplicationViews from "../ApplicationViews"
 import "./Search.css"
 
-export default class DetailsModal extends React.Component {
+export default class SearchModal extends React.Component {
   credentials = JSON.parse(sessionStorage.getItem('credentials'))
 
   state = {
@@ -29,15 +29,11 @@ export default class DetailsModal extends React.Component {
   addShow = () => {
     let currentUserId = this.credentials
     let friendName = this.state.friendRecommendation
-    let friendId = this.props.friendsArray.find((friend) => friendName === friend.email)
-    console.log(this.props.friendsArray)
-    if (friendId.length === 0) {
-      alert("You have not listed one of your friends. Please choose a friend from your friendlist.")
-    } else {
-      // fix the username to ID
+    let friendId = this.props.friendsArray.find((friend) => friend.email === friendName)
+    if (friendId) {
       let object = {
         requesterID: currentUserId,
-        recipientID: friendId[0].id,
+        recipientID: friendId.id,
         apiID: this.props.show.apiID,
         rating: 0
       }
@@ -45,6 +41,8 @@ export default class DetailsModal extends React.Component {
       this.setState({
         modal: !this.state.modal
       })
+    } else {
+      alert("You have not listed one of your friends. Please choose a friend from your friendlist.")
     }
   }
 
