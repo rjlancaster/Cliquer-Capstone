@@ -40,9 +40,9 @@ export default Object.create(null, {
     }
   },
 
-  getAllByUser: {
-    value: (resource, credentials) => {
-      return fetch(`${remoteSearchURL}/${resource}?userId=${credentials}`)
+  getUserId: {
+    value: (credentials) => {
+      return fetch(`${localURL}/users?email=${credentials}`)
         .then(result => result.json())
     }
   },

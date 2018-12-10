@@ -127,7 +127,7 @@ export default class ApplicationViews extends Component {
           return <FriendsList relationships={this.state.relationships} friendsArray={this.state.friendsArray} findFriends={this.findFriends}/>
         }} />
         <Route path="/search" render={(props) => {
-          return <Search />
+          return <Search getShows={this.getShows} {...props}/>
         }} />
         <Route path="/detail" render={(props) => {
           return <DetailsModal shows={this.state.shows} users={this.state.users} friends={this.state.friends}{...props} />

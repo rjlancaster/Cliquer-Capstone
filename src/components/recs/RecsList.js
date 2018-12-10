@@ -25,7 +25,7 @@ export default class RecsList extends Component {
                 title: data.original_name,
                 synopsis: data.overview,
                 apiID: data.id,
-                userID: this.credentials.id
+                userID: this.credentials
               }
               showArray.push(showObject)
               this.setState({ showArray: showArray })

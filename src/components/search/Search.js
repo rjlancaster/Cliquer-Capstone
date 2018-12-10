@@ -30,7 +30,7 @@ export default class Search extends Component {
             title: data.original_name,
             synopsis: data.overview,
             apiID: data.id,
-            credentials: credentials.id
+            credentials: credentials
           }
           return selectedShows.push(selectedShowObject)
         }

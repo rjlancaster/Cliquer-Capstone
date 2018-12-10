@@ -25,14 +25,13 @@ export default class FriendsList extends Component {
           <p>Friend List:</p>
           {
             this.props.friendsArray.map(friend => {
-              return (<div className="friend-Group">
+              return (<div className="friend-Group" key={friend.id}>
                 <div>
                   <p>{friend.email}</p>
                 </div>
               </div>
               )
-            }
-            )
+            })
           }
         </section>
         <section className="addFriend">

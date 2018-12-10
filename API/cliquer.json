@@ -2,20 +2,19 @@
   "users": [
     {
       "id": 1,
-      "email": "rich@rich.com",
+      "email": "Richard",
       "password": "123"
     },
     {
       "id": 2,
-      "email": "will@will.com",
+      "email": "Will",
       "password": "123"
     },
     {
       "id": 3,
-      "email": "mark@mark.com",
+      "email": "Mark",
       "password": "123"
     }
-
   ],
   "shows": [
     {
@@ -31,6 +30,18 @@
       "recipientID": 2,
       "apiID": 4608,
       "rating": 1
+    },
+    {
+      "requesterID": 2,
+      "apiID": 464851,
+      "rating": 0,
+      "id": 3
+    },
+    {
+      "requesterID": 2,
+      "apiID": 122270,
+      "rating": 0,
+      "id": 4
     }
   ],
   "relationships": [
