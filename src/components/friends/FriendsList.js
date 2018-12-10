@@ -36,7 +36,21 @@ export default class FriendsList extends Component {
         </section>
         <section className="addFriend">
           <p>Add a friend:</p>
-
+          <input
+            onChange={this.handleFieldChange}
+            className="showInput"
+            type="text"
+            id="friendId" />
+          <button type="submit" onClick={this.props.addRelationship} className="btn btn-primary">Submit</button>
+        </section>
+        <section className="removeFriend">
+          <p>Remove a friend:</p>
+          <input
+            onChange={this.handleFieldChange}
+            className="showInput"
+            type="text"
+            id="friendId" />
+          <button type="submit" onClick={this.props.removeRelationship} className="btn btn-primary">Submit</button>
         </section>
       </React.Fragment>
     )

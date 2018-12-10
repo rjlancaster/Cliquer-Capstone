@@ -53,7 +53,7 @@ export default class Search extends Component {
             placeholder="Enter TV Show Title" />
           <button type="submit" onClick={this.constructNewSearch} className="btn btn-primary">Submit</button>
         </div>
-        <SearchList selectedShow={this.state.selectedShows}/>
+        <SearchList selectedShow={this.state.selectedShows} friendsArray={this.props.friendsArray}/>
       </React.Fragment>
     )
   }

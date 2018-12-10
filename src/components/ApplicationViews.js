@@ -6,6 +6,7 @@ import FriendsList from './friends/FriendsList'
 import Search from './search/Search'
 import DetailsModal from './detail/detailsModal'
 import ApiManager from '../module/ApiManager'
+// import SearchModal from './search/SearchModal'
 
 
 export default class ApplicationViews extends Component {
@@ -59,14 +60,38 @@ export default class ApplicationViews extends Component {
 
   findFriends = (currentUserId) => {
     return this.findRelationships(currentUserId)
-      .then((rels) => {
+      .then((relationships) => {
         let friendsArray = []
-        rels.forEach((rel) => {
-          friendsArray.push(this.state.users.find(user => user.id === rel.friendId))
+        relationships.forEach((relationship) => {
+          friendsArray.push(this.state.users.find(user => user.id === relationship.friendId))
         })
         this.setState({ friendsArray: friendsArray })
       })
   }
+
+  // addRelationship = (newFriendId) => {
+  //   let currentUserId = this.credentials
+  //   return this.getUsers()
+  //     .then((user) => {
+  //       user.find(user => newFriendId === user.email)
+  //     })
+  //     .then((user) = {
+  //       let object = ""
+  //       object = {
+  //         userId: currentUserId,
+  //         friendId: user.id
+  //       }
+  //       return ApiManager.saveData("relationships", object)
+  //         .then(() => this.findFriends(currentUserId))
+  //     })
+  // }
+
+  // findSingleFriend = (currentUserId) => {
+  //   return this.findFriends(currentUserId)
+  //     .then(() => {
+  //       this.state.friendsArray.find(user)
+  //     })
+  // }
 
   removeRelationship = (id) => {
     return ApiManager.deleteData("relationships", id)
@@ -79,16 +104,6 @@ export default class ApplicationViews extends Component {
       .then(() => {
         return this.findFriends(this.credentials)
       })
-  }
-
-  addRelationship = (newFriendId) => {
-    let currentUserId = this.credentials
-    let object = {
-      userId: currentUserId,
-      friendId: newFriendId
-    }
-    return ApiManager.saveData("relationships", object)
-      .then(() => this.findFriends(currentUserId))
   }
 
   addShow = (friendId, apiID) => {
@@ -124,10 +139,10 @@ export default class ApplicationViews extends Component {
           return <HistoryList delete={this.deleteshow} shows={this.state.shows} />
         }} />
         <Route path="/friends" render={(props) => {
-          return <FriendsList relationships={this.state.relationships} friendsArray={this.state.friendsArray} findFriends={this.findFriends}/>
+          return <FriendsList relationships={this.state.relationships} friendsArray={this.state.friendsArray} findFriends={this.findFriends} addRelationship={this.addRelationship} removeRelationship={this.removeRelationship} />
         }} />
         <Route path="/search" render={(props) => {
-          return <Search getShows={this.getShows} {...props}/>
+          return <Search getShows={this.getShows} friendsArray={this.state.friendsArray} {...props} />
         }} />
         <Route path="/detail" render={(props) => {
           return <DetailsModal shows={this.state.shows} users={this.state.users} friends={this.state.friends}{...props} />
