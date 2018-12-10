@@ -6,11 +6,9 @@ import FriendsList from './friends/FriendsList'
 import Search from './search/Search'
 import DetailsModal from './detail/detailsModal'
 import ApiManager from '../module/ApiManager'
-// import SearchModal from './search/SearchModal'
-
 
 export default class ApplicationViews extends Component {
-  credentials = JSON.parse(sessionStorage.getItem('credentials'))
+  credentials = parseInt(sessionStorage.getItem('credentials'))
   state = {
     users: [],
     shows: [],
@@ -34,6 +32,7 @@ export default class ApplicationViews extends Component {
       })
       .then(() =>
         this.setState(newState))
+    this.findFriends(this.credentials)
   }
 
   getUsers = () => {
@@ -66,43 +65,6 @@ export default class ApplicationViews extends Component {
           friendsArray.push(this.state.users.find(user => user.id === relationship.friendId))
         })
         this.setState({ friendsArray: friendsArray })
-      })
-  }
-
-  // addRelationship = (newFriendId) => {
-  //   let currentUserId = this.credentials
-  //   return this.getUsers()
-  //     .then((user) => {
-  //       user.find(user => newFriendId === user.email)
-  //     })
-  //     .then((user) = {
-  //       let object = ""
-  //       object = {
-  //         userId: currentUserId,
-  //         friendId: user.id
-  //       }
-  //       return ApiManager.saveData("relationships", object)
-  //         .then(() => this.findFriends(currentUserId))
-  //     })
-  // }
-
-  // findSingleFriend = (currentUserId) => {
-  //   return this.findFriends(currentUserId)
-  //     .then(() => {
-  //       this.state.friendsArray.find(user)
-  //     })
-  // }
-
-  removeRelationship = (id) => {
-    return ApiManager.deleteData("relationships", id)
-      .then(() => new Promise((resolve) => {
-        this.setState({
-          friendsArray: [],
-          relationships: []
-        }, () => resolve())
-      }))
-      .then(() => {
-        return this.findFriends(this.credentials)
       })
   }
 
@@ -139,7 +101,7 @@ export default class ApplicationViews extends Component {
           return <HistoryList delete={this.deleteshow} shows={this.state.shows} />
         }} />
         <Route path="/friends" render={(props) => {
-          return <FriendsList relationships={this.state.relationships} friendsArray={this.state.friendsArray} findFriends={this.findFriends} addRelationship={this.addRelationship} removeRelationship={this.removeRelationship} />
+          return <FriendsList users={this.state.users} relationships={this.state.relationships} friendsArray={this.state.friendsArray} findFriends={this.findFriends} />
         }} />
         <Route path="/search" render={(props) => {
           return <Search getShows={this.getShows} friendsArray={this.state.friendsArray} {...props} />
