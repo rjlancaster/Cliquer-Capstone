@@ -15,7 +15,7 @@ export default class SearchList extends Component {
                 <img className="poster-Image" src={`https://image.tmdb.org/t/p/w185${show.image}`} alt="tv-poster" />
               </div>
               <div>
-            <SearchModal show={show} />
+            <SearchModal show={show} friendsArray={this.props.friendsArray}/>
             </div>
             </div>
             )

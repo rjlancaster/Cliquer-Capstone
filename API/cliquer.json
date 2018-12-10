@@ -2,12 +2,17 @@
   "users": [
     {
       "id": 1,
-      "email": "rjlancaster@gmail.com",
+      "email": "Richard",
       "password": "123"
     },
     {
       "id": 2,
-      "email": "william.g.morgan@gmail.com",
+      "email": "Will",
+      "password": "123"
+    },
+    {
+      "id": 3,
+      "email": "Mark",
       "password": "123"
     }
   ],
@@ -25,18 +30,47 @@
       "recipientID": 2,
       "apiID": 4608,
       "rating": 1
+    },
+    {
+      "requesterID": 2,
+      "apiID": 464851,
+      "rating": 0,
+      "id": 3
+    },
+    {
+      "requesterID": 2,
+      "apiID": 464851,
+      "rating": 0,
+      "id": 4
+    },
+    {
+      "requesterID": 2,
+      "apiID": 464851,
+      "rating": 0,
+      "id": 5
+    },
+    {
+      "requesterID": 2,
+      "apiID": 464851,
+      "rating": 0,
+      "id": 6
     }
   ],
-  "friends": [
+  "relationships": [
     {
       "id": 1,
-      "selfID": 1,
-      "friendID": 2
+      "userId": 1,
+      "friendId": 2
     },
     {
       "id": 2,
-      "selfID": 2,
-      "friendID": 1
+      "userId": 2,
+      "friendId": 1
+    },
+    {
+      "id": 3,
+      "userId": 1,
+      "friendId": 3
     }
   ]
 }

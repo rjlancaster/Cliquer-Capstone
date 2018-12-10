@@ -4,7 +4,7 @@ import DetailsModal from "../detail/detailsModal"
 import "./History.css"
 
 export default class RecsList extends Component {
-  credentials = JSON.parse(localStorage.getItem('credentials'))
+  credentials = JSON.parse(sessionStorage.getItem('credentials'))
 
   state = {
     showArray: []
@@ -12,8 +12,8 @@ export default class RecsList extends Component {
 
   componentDidMount() {
     let showArray = []
-    this.props.shows.filter((show => this.credentials.id === show.recipientID))
-      .map(show => {
+    this.props.shows.filter((show => this.credentials === show.recipientID))
+    .map(show => {
       if (show.rating !== 0) {
       const url = `https://api.themoviedb.org/3/tv/${show.apiID}?api_key=71beceaec7947e27f4fa92aadc09db8c`
       return fetch(url)

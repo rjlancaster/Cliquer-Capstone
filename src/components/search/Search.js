@@ -18,7 +18,7 @@ export default class Search extends Component {
   constructNewSearch = evt => {
     let selectedShows = []
     evt.preventDefault()
-    const credentials = JSON.parse(localStorage.getItem('credentials'))
+    const credentials = JSON.parse(sessionStorage.getItem('credentials'))
     const url = `https://api.themoviedb.org/3/search/multi?api_key=71beceaec7947e27f4fa92aadc09db8c&language=en-US&include_adult=false&query=${this.state.search}`
     return fetch(url)
       .then(data => data.json())
@@ -30,7 +30,7 @@ export default class Search extends Component {
             title: data.original_name,
             synopsis: data.overview,
             apiID: data.id,
-            credentials: credentials.id
+            credentials: credentials
           }
           return selectedShows.push(selectedShowObject)
         }
@@ -53,7 +53,7 @@ export default class Search extends Component {
             placeholder="Enter TV Show Title" />
           <button type="submit" onClick={this.constructNewSearch} className="btn btn-primary">Submit</button>
         </div>
-        <SearchList selectedShow={this.state.selectedShows}/>
+        <SearchList selectedShow={this.state.selectedShows} friendsArray={this.props.friendsArray}/>
       </React.Fragment>
     )
   }

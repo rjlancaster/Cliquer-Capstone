@@ -1,8 +1,15 @@
 import React from 'react';
 import { Button, Modal, ModalBody, ModalFooter } from 'reactstrap';
+import ApiManager from "../../module/ApiManager"
+// import ApplicationViews from "../ApplicationViews"
 import "./Search.css"
 
 export default class DetailsModal extends React.Component {
+  credentials = JSON.parse(sessionStorage.getItem('credentials'))
+
+  state = {
+    friendRecommendation: []
+  }
   constructor(props) {
     super(props);
     this.state = {
@@ -10,6 +17,35 @@ export default class DetailsModal extends React.Component {
     };
 
     this.toggle = this.toggle.bind(this);
+  }
+
+  // Update state whenever an input field is edited
+  handleFieldChange = evt => {
+    const stateToChange = {}
+    stateToChange[evt.target.id] = evt.target.value
+    this.setState(stateToChange)
+  }
+
+  addShow = () => {
+    let currentUserId = this.credentials
+    let friendName = this.state.friendRecommendation
+    let friendId = this.props.friendsArray.find((friend) => friendName === friend.email)
+    console.log(this.props.friendsArray)
+    if (friendId.length === 0) {
+      alert("You have not listed one of your friends. Please choose a friend from your friendlist.")
+    } else {
+      // fix the username to ID
+      let object = {
+        requesterID: currentUserId,
+        recipientID: friendId[0].id,
+        apiID: this.props.show.apiID,
+        rating: 0
+      }
+      ApiManager.saveData("shows", object)
+      this.setState({
+        modal: !this.state.modal
+      })
+    }
   }
 
   toggle() {
@@ -35,8 +71,15 @@ export default class DetailsModal extends React.Component {
             </div >
           </ModalBody>
           <ModalFooter>
-            <Button color="primary" onClick={this.toggle}>Love It!</Button>
-            <Button color="secondary" onClick={this.toggle}>Hate It!</Button>
+            <div className="navigation__container--left">
+              <input
+                onChange={this.handleFieldChange}
+                className="showRecommendation"
+                type="text"
+                id="friendRecommendation"
+                placeholder="Recommend this show to a friend!" />
+              <button type="submit" onClick={this.addShow} className="btn btn-primary">Submit</button>
+            </div>
           </ModalFooter>
         </Modal>
       </div>
