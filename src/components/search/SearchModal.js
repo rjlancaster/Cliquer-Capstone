@@ -55,7 +55,9 @@ export default class SearchModal extends React.Component {
   render() {
     return (
       <div>
-        <Button className="modalButton" color="success" onClick={this.toggle}>Details</Button>
+        <div>
+          <img className="poster-Image" src={`https://image.tmdb.org/t/p/w300${this.props.show.image}`} onClick={this.toggle} alt="tv-poster" />
+        </div>
         <Modal className="modal-container" size="xl" isOpen={this.state.modal} toggle={this.toggle} >
           <ModalBody>
             <div className="detail-group">

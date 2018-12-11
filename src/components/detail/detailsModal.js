@@ -17,7 +17,12 @@ export default class DetailsModal extends React.Component {
   removeShow = () => {
     ApiManager.deleteData("shows", this.props.show.showId)
       .then(() => this.props.getShows())
-      // .then(() => this.props.setRecsList())
+      .then(() => {
+        this.toggle()
+        this.props.setRecsList()
+      })
+      // this.props.yes()
+      // this.props.history.push("/recommendations")
   }
 
   upVote = () => {
@@ -39,7 +44,9 @@ export default class DetailsModal extends React.Component {
     ApiManager.editData("shows", this.props.show.showId, downVote)
       .then(() => this.props.getShows())
       .then(this.setState({ modal: !this.state.modal })
-      )
+      ).then(() => {
+        this.props.history.push("/history")
+      })
   }
 
   toggle() {
@@ -54,7 +61,6 @@ export default class DetailsModal extends React.Component {
         <div>
           <img className="poster-Image" src={`https://image.tmdb.org/t/p/w300${this.props.show.image}`} onClick={this.toggle} alt="tv-poster" />
         </div>
-        {/* <Button className="modalButton" color="success" onClick={this.toggle}>Details</Button> */}
         <Modal className="modal-container" size="xl" isOpen={this.state.modal} toggle={this.toggle} >
           <ModalBody>
             <div className="detail-group">

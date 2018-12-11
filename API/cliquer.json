@@ -23,13 +23,6 @@
   ],
   "shows": [
     {
-      "id": 1,
-      "requesterID": 2,
-      "recipientID": 1,
-      "apiID": 61671,
-      "rating": 0
-    },
-    {
       "id": 2,
       "requesterID": 1,
       "recipientID": 2,
@@ -45,59 +38,24 @@
     },
     {
       "requesterID": 1,
-      "recipientID": 2,
-      "apiID": 61575,
-      "rating": 0,
-      "id": 14
-    },
-    {
-      "requesterID": 1,
       "recipientID": 3,
       "apiID": 48891,
       "rating": 0,
       "id": 15
     },
     {
-      "requesterID": 2,
-      "recipientID": 1,
-      "apiID": 4608,
-      "rating": 0,
-      "id": 16
-    },
-    {
-      "requesterID": 2,
-      "recipientID": 1,
-      "apiID": 32726,
-      "rating": 0,
-      "id": 17
-    },
-    {
-      "requesterID": 2,
-      "recipientID": 1,
-      "apiID": 456,
-      "rating": 0,
-      "id": 18
-    },
-    {
-      "requesterID": 2,
-      "recipientID": 1,
-      "apiID": 48891,
+      "requesterID": 1,
+      "recipientID": 2,
+      "apiID": 31677,
       "rating": 0,
       "id": 19
     },
     {
-      "requesterID": 4,
+      "requesterID": 2,
       "recipientID": 1,
-      "apiID": 4589,
+      "apiID": 14266,
       "rating": 0,
-      "id": 20
-    },
-    {
-      "requesterID": 4,
-      "recipientID": 1,
-      "apiID": 66573,
-      "rating": 0,
-      "id": 21
+      "id": 29
     }
   ],
   "relationships": [

@@ -1,5 +1,4 @@
 import React, { Component } from "react"
-// import DataManager from "../../module/DataManager"
 import DetailsModal from "../detail/detailsModal"
 import { Button } from 'reactstrap';
 import ApiManager from "../../module/ApiManager"
@@ -9,14 +8,15 @@ export default class RecsList extends Component {
   credentials = parseInt(sessionStorage.getItem('credentials'))
 
   state = {
-    showArray: []
+    showArray: [],
+     yes: false
   }
 
   componentDidMount() {
     this.setRecsList()
   }
 
-  setRecsList() {
+  setRecsList = () =>  {
     let showArray = []
     this.props.shows.filter((show => this.credentials === show.recipientID))
       .map(show => {
@@ -50,7 +50,7 @@ export default class RecsList extends Component {
           this.state.showArray.map(show => {
             return (<div key={show.id} className="poster-Group" >
               <div>
-                <DetailsModal show={show} setRecsList={this.setRecsList} {...this.props} />
+                <DetailsModal yes={this.setYes} show={show} setRecsList={this.setRecsList} {...this.props} />
               </div>
               <div className="posterFooter">
                 <div>

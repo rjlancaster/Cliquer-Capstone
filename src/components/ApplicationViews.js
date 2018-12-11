@@ -62,27 +62,25 @@ export default class ApplicationViews extends Component {
   }
 
   render() {
-    if (!this.state.shows.length) {
-      return null
-    }
-    return (
-      <React.Fragment>
-        <Route exact path="/recommendations" render={(props) => {
-          return <RecsList shows={this.state.shows} users={this.state.users} getShows={this.getShows} {...props} />
-        }} />
-        <Route path="/history" render={(props) => {
-          return <HistoryList shows={this.state.shows} users={this.state.users} getShows={this.getShows} {...props} />
-        }} />
-        <Route path="/friends" render={(props) => {
-          return <FriendsList users={this.state.users} relationships={this.state.relationships} friendsArray={this.state.friendsArray} findFriends={this.findFriends} />
-        }} />
-        <Route path="/search" render={(props) => {
-          return <Search getShows={this.getShows} friendsArray={this.state.friendsArray} {...props} />
-        }} />
-        {/* <Route path="/detail" render={(props) => {
+    return !this.state.shows.length ? <span>Loading page...</span> :
+      (
+        <React.Fragment>
+          <Route exact path="/recommendations" render={(props) => {
+            return <RecsList shows={this.state.shows} users={this.state.users} getShows={this.getShows} {...props} />
+          }} />
+          <Route path="/history" render={(props) => {
+            return <HistoryList shows={this.state.shows} users={this.state.users} getShows={this.getShows} {...props} />
+          }} />
+          <Route path="/friends" render={(props) => {
+            return <FriendsList users={this.state.users} relationships={this.state.relationships} friendsArray={this.state.friendsArray} findFriends={this.findFriends} />
+          }} />
+          <Route path="/search" render={(props) => {
+            return <Search getShows={this.getShows} friendsArray={this.state.friendsArray} {...props} />
+          }} />
+          {/* <Route path="/detail" render={(props) => {
           return <DetailsModal shows={this.state.shows} users={this.state.users} friends={this.state.friends} getShows={this.getShows} {...props} />
         }} /> */}
-      </React.Fragment>
-    )
+        </React.Fragment>
+      )
   }
 }

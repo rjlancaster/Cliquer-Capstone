@@ -12,11 +12,14 @@ export default class SearchList extends Component {
           this.props.selectedShow.map(show => {
             return (<div className="poster-Group" key={show.apiID}>
               <div>
+                <SearchModal show={show} {...this.props} />
+              </div>
+              {/* <div>
                 <img className="poster-Image" src={`https://image.tmdb.org/t/p/w300${show.image}`} alt="tv-poster" />
               </div>
               <div>
-            <SearchModal {...this.props} show={show} />
-            </div>
+                <SearchModal {...this.props} show={show} />
+              </div> */}
             </div>
             )
           }
