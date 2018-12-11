@@ -1,16 +1,22 @@
 import React, { Component } from "react"
 // import DataManager from "../../module/DataManager"
 import DetailsModal from "../detail/detailsModal"
+import { Button } from 'reactstrap';
+import ApiManager from "../../module/ApiManager"
 import "./Recs.css"
 
 export default class RecsList extends Component {
-  credentials = JSON.parse(sessionStorage.getItem('credentials'))
+  credentials = parseInt(sessionStorage.getItem('credentials'))
 
   state = {
     showArray: []
   }
 
   componentDidMount() {
+    this.setRecsList()
+  }
+
+  setRecsList() {
     let showArray = []
     this.props.shows.filter((show => this.credentials === show.recipientID))
       .map(show => {
@@ -19,17 +25,19 @@ export default class RecsList extends Component {
           return fetch(url)
             .then(data => data.json())
             .then(data => {
+              let senderID = []
+              senderID.push(this.props.users.find((user) => show.requesterID === user.id))
               let showObject = {
                 showId: show.id,
                 image: data.poster_path,
                 title: data.original_name,
                 synopsis: data.overview,
                 apiID: data.id,
+                senderID: senderID[0].username,
                 userID: this.credentials
               }
               showArray.push(showObject)
               this.setState({ showArray: showArray })
-
             })
         }
       })
@@ -42,10 +50,12 @@ export default class RecsList extends Component {
           this.state.showArray.map(show => {
             return (<div key={show.id} className="poster-Group" >
               <div>
-                <img className="poster-Image" src={`https://image.tmdb.org/t/p/w300${show.image}`} alt="tv-poster" />
+                <DetailsModal show={show} setRecsList={this.setRecsList} {...this.props} />
               </div>
-              <div>
-                <DetailsModal show={show} {...this.props} />
+              <div className="posterFooter">
+                <div>
+                  From {show.senderID}
+                </div>
               </div>
             </div>
             )

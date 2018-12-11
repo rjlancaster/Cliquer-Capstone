@@ -27,7 +27,7 @@
       "requesterID": 2,
       "recipientID": 1,
       "apiID": 61671,
-      "rating": 1
+      "rating": 0
     },
     {
       "id": 2,
@@ -44,41 +44,6 @@
       "id": 8
     },
     {
-      "requesterID": 2,
-      "recipientID": 1,
-      "apiID": 66573,
-      "rating": 1,
-      "id": 9
-    },
-    {
-      "requesterID": 2,
-      "recipientID": 1,
-      "apiID": 32726,
-      "rating": 1,
-      "id": 10
-    },
-    {
-      "requesterID": 2,
-      "recipientID": 1,
-      "apiID": 61888,
-      "rating": 0,
-      "id": 11
-    },
-    {
-      "requesterID": 2,
-      "recipientID": 1,
-      "apiID": 48891,
-      "rating": 0,
-      "id": 12
-    },
-    {
-      "requesterID": 2,
-      "recipientID": 1,
-      "apiID": 74321,
-      "rating": 1,
-      "id": 13
-    },
-    {
       "requesterID": 1,
       "recipientID": 2,
       "apiID": 61575,
@@ -91,6 +56,48 @@
       "apiID": 48891,
       "rating": 0,
       "id": 15
+    },
+    {
+      "requesterID": 2,
+      "recipientID": 1,
+      "apiID": 4608,
+      "rating": 0,
+      "id": 16
+    },
+    {
+      "requesterID": 2,
+      "recipientID": 1,
+      "apiID": 32726,
+      "rating": 0,
+      "id": 17
+    },
+    {
+      "requesterID": 2,
+      "recipientID": 1,
+      "apiID": 456,
+      "rating": 0,
+      "id": 18
+    },
+    {
+      "requesterID": 2,
+      "recipientID": 1,
+      "apiID": 48891,
+      "rating": 0,
+      "id": 19
+    },
+    {
+      "requesterID": 4,
+      "recipientID": 1,
+      "apiID": 4589,
+      "rating": 0,
+      "id": 20
+    },
+    {
+      "requesterID": 4,
+      "recipientID": 1,
+      "apiID": 66573,
+      "rating": 0,
+      "id": 21
     }
   ],
   "relationships": [

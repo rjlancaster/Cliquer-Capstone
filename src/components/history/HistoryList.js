@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 // import DataManager from "../../module/DataManager"
 import DetailsModal from "../detail/detailsModal"
+import { Button } from 'reactstrap';
 import "./History.css"
 
 export default class RecsList extends Component {
@@ -19,12 +20,16 @@ export default class RecsList extends Component {
           return fetch(url)
             .then(data => data.json())
             .then(data => {
+              let senderID = []
+              senderID.push(this.props.users.find((user) => show.requesterID === user.id))
               let showObject = {
                 showId: show.id,
                 image: data.poster_path,
                 title: data.original_name,
                 synopsis: data.overview,
-                apiID: data.id
+                apiID: data.id,
+                senderID: senderID[0].username,
+                userID: this.credentials
               }
               showArray.push(showObject)
               this.setState({ showArray: showArray })
@@ -38,12 +43,17 @@ export default class RecsList extends Component {
       <section className="recs">
         {
           this.state.showArray.map(show => {
-            return (<div className="poster-Group" key={show.apiID}>
-              <div>
-                <img className="poster-Image" src={`https://image.tmdb.org/t/p/w300${show.image}`} alt="tv-poster" />
-              </div>
+            return (<div key={show.id} className="poster-Group" >
               <div>
                 <DetailsModal show={show} {...this.props} />
+              </div>
+              <div class="posterFooter">
+                <div>
+                  From {show.senderID}
+                </div>
+                <div>
+                  <Button color="danger">Remove</Button>
+                </div>
               </div>
             </div>
             )

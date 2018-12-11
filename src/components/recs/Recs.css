@@ -7,3 +7,9 @@
   margin: 20px;
 
 }
+
+.posterFooter {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}

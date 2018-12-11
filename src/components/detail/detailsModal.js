@@ -14,6 +14,12 @@ export default class DetailsModal extends React.Component {
     this.toggle = this.toggle.bind(this);
   }
 
+  removeShow = () => {
+    ApiManager.deleteData("shows", this.props.show.showId)
+      .then(() => this.props.getShows())
+      // .then(() => this.props.setRecsList())
+  }
+
   upVote = () => {
     const upVote = {
       rating: 1
@@ -45,7 +51,10 @@ export default class DetailsModal extends React.Component {
   render() {
     return (
       <div>
-        <Button className="modalButton" color="success" onClick={this.toggle}>Details</Button>
+        <div>
+          <img className="poster-Image" src={`https://image.tmdb.org/t/p/w300${this.props.show.image}`} onClick={this.toggle} alt="tv-poster" />
+        </div>
+        {/* <Button className="modalButton" color="success" onClick={this.toggle}>Details</Button> */}
         <Modal className="modal-container" size="xl" isOpen={this.state.modal} toggle={this.toggle} >
           <ModalBody>
             <div className="detail-group">
@@ -61,6 +70,7 @@ export default class DetailsModal extends React.Component {
           <ModalFooter>
             <Button color="primary" onClick={this.upVote}>Love It!</Button>
             <Button color="secondary" onClick={this.downVote}>Hate It!</Button>
+            <Button color="danger" onClick={this.removeShow}>Remove</Button>
           </ModalFooter>
         </Modal>
       </div>

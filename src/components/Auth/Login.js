@@ -1,4 +1,3 @@
-import { Redirect } from 'react-router-dom'
 import React, { Component } from "react"
 import ApiManager from "../../module/ApiManager"
 import "./login.css"
@@ -24,7 +23,7 @@ export default class Login extends Component {
       password: this.state.password
     }
     if (!this.state.username || !this.state.password) {
-      alert("please")
+      alert("Username or password incorrect")
     } else if (this.state.username || this.state.password) {
       ApiManager.searchUsername(this.state.username).then(users => {
         if (users.length) {
@@ -44,7 +43,7 @@ export default class Login extends Component {
   handleLogin = e => {
     e.preventDefault()
     if (!this.state.username || !this.state.password) {
-      alert("please")
+      alert("Username or password incorrect")
     } else if (this.state.username || this.state.password) {
       ApiManager.searchNP(this.state.username, this.state.password).then(
         user => {
