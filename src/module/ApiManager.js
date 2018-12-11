@@ -42,7 +42,7 @@ export default Object.create(null, {
 
   getUserId: {
     value: (credentials) => {
-      return fetch(`${localURL}/users?email=${credentials}`)
+      return fetch(`${localURL}/users?username=${credentials}`)
         .then(result => result.json())
     }
   },
@@ -94,7 +94,7 @@ export default Object.create(null, {
   searchNP: {
     value: function (username, password) {
       return fetch(
-        `${localURL}/users?email=${username}&password=${password}`
+        `${localURL}/users?username=${username}&password=${password}`
       ).then(e => e.json())
     }
   },
@@ -108,15 +108,3 @@ export default Object.create(null, {
   },
 
 })
-        // add: {
-        //   value: function(resource, newObject) {
-        //     return fetch(`${localURL}/${resource}`, {
-        //       method: "POST",
-        //       headers: {
-        //         "Content-Type": "application/json"
-        //       },
-        //       body: JSON.stringify(newObject)
-        //     }).then(e => e.json())
-        //       .then(() => this.all(resource))
-        //   }
-        // },

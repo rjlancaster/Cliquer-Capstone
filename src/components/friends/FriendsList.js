@@ -22,7 +22,7 @@ export default class FriendsList extends Component {
   addRelationship = () => {
     let currentUserId = this.credentials
     let userIdArray = []
-    userIdArray.push(this.props.users.find(user => user.email === this.state.addFriend))
+    userIdArray.push(this.props.users.find(user => user.username === this.state.addFriend))
     let object = {
       userId: currentUserId,
       friendId: userIdArray[0].id
@@ -35,7 +35,7 @@ export default class FriendsList extends Component {
     let currentUserId = this.credentials
     let userIdArray = []
     let userFriendMatch = []
-    userIdArray.push(this.props.users.find(user => user.email === this.state.delFriend))
+    userIdArray.push(this.props.users.find(user => user.username === this.state.delFriend))
     userFriendMatch.push(this.props.relationships.find(user => user.friendId === userIdArray[0].id && user.userId === currentUserId))
     console.log(userFriendMatch)
     return ApiManager.deleteData("relationships", userFriendMatch[0].id)
@@ -53,7 +53,7 @@ export default class FriendsList extends Component {
             this.props.friendsArray.map(friend => {
               return (<div className="friend-Group" key={friend.id}>
                 <div>
-                  <p>{friend.email}</p>
+                  <p>{friend.username}</p>
                 </div>
               </div>
               )

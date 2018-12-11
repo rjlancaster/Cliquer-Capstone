@@ -4,6 +4,7 @@ import "./detail.css"
 import ApiManager from "../../module/ApiManager"
 
 export default class DetailsModal extends React.Component {
+  credentials = JSON.parse(sessionStorage.getItem('credentials'))
   constructor(props) {
     super(props);
     this.state = {
@@ -17,20 +18,22 @@ export default class DetailsModal extends React.Component {
     const upVote = {
       rating: 1
     }
-    ApiManager.edit("shows", this.props.show.showId, upVote)
-    .then(this.setState({
-      modal: !this.state.modal
-    }))
+    ApiManager.editData("shows", this.props.show.showId, upVote)
+      .then(() => this.props.getShows())
+      .then(this.setState({ modal: !this.state.modal })
+      ).then(() => {
+        this.props.history.push("/history")
+      })
   }
 
   downVote = () => {
     const downVote = {
       rating: 2
     }
-    ApiManager.edit("shows", this.props.show.showId, downVote)
-    this.setState({
-      modal: !this.state.modal
-    })
+    ApiManager.editData("shows", this.props.show.showId, downVote)
+      .then(() => this.props.getShows())
+      .then(this.setState({ modal: !this.state.modal })
+      )
   }
 
   toggle() {

@@ -6,6 +6,7 @@ import FriendsList from './friends/FriendsList'
 import Search from './search/Search'
 import DetailsModal from './detail/detailsModal'
 import ApiManager from '../module/ApiManager'
+import Login from '../components/Auth/Login'
 
 export default class ApplicationViews extends Component {
   credentials = parseInt(sessionStorage.getItem('credentials'))
@@ -17,21 +18,12 @@ export default class ApplicationViews extends Component {
   }
 
   componentDidMount() {
-    const newState = {}
-    ApiManager.getData("users")
-      .then(allUsers => {
-        newState.users = allUsers
-      })
-    ApiManager.getData("shows")
-      .then(allShows => {
-        newState.shows = allShows
-      })
-    ApiManager.getData("relationships")
-      .then(allRelationships => {
-        newState.relationships = allRelationships
-      })
-      .then(() =>
-        this.setState(newState))
+
+    // ApiManager.getData("shows")
+    //   .then(shows => {
+    //     this.setState({ shows: shows })
+    //   })
+    this.getShows()
     this.findFriends(this.credentials)
   }
 
@@ -68,18 +60,6 @@ export default class ApplicationViews extends Component {
       })
   }
 
-  addShow = (friendId, apiID) => {
-    let currentUserId = this.credentials
-    let object = {
-      userId: currentUserId,
-      friendId: friendId,
-      apiID: apiID,
-      rating: 0
-    }
-    return ApiManager.saveData("shows", object)
-      .then(() => this.getShows())
-  }
-
   removeShow = (id) => {
     ApiManager.deleteData("shows", id)
       .then(shows => this.setState({
@@ -94,11 +74,11 @@ export default class ApplicationViews extends Component {
     }
     return (
       <React.Fragment>
-        <Route exact path="/" render={(props) => {
-          return <RecsList delete={this.deleteshow} shows={this.state.shows} {...props} />
+        <Route exact path="/recommendations" render={(props) => {
+          return <RecsList removeShow={this.removeShow} shows={this.state.shows} getShows={this.getShows} {...props} />
         }} />
         <Route path="/history" render={(props) => {
-          return <HistoryList delete={this.deleteshow} shows={this.state.shows} />
+          return <HistoryList removeShow={this.removeShow} shows={this.state.shows} getShows={this.getShows} {...props} />
         }} />
         <Route path="/friends" render={(props) => {
           return <FriendsList users={this.state.users} relationships={this.state.relationships} friendsArray={this.state.friendsArray} findFriends={this.findFriends} />
@@ -106,9 +86,9 @@ export default class ApplicationViews extends Component {
         <Route path="/search" render={(props) => {
           return <Search getShows={this.getShows} friendsArray={this.state.friendsArray} {...props} />
         }} />
-        <Route path="/detail" render={(props) => {
-          return <DetailsModal shows={this.state.shows} users={this.state.users} friends={this.state.friends}{...props} />
-        }} />
+        {/* <Route path="/detail" render={(props) => {
+          return <DetailsModal shows={this.state.shows} users={this.state.users} friends={this.state.friends} getShows={this.getShows} {...props} />
+        }} /> */}
       </React.Fragment>
     )
   }
