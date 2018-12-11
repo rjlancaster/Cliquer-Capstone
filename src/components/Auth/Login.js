@@ -1,3 +1,4 @@
+import { Redirect } from 'react-router-dom'
 import React, { Component } from "react"
 import ApiManager from "../../module/ApiManager"
 import "./login.css"
@@ -27,9 +28,9 @@ export default class Login extends Component {
     } else if (this.state.username || this.state.password) {
       ApiManager.searchUsername(this.state.username).then(users => {
         if (users.length) {
-          alert(`username ${this.state.username} already exits!`)
+          alert(`username ${this.state.username} already exists!`)
         } else if (!users.length) {
-          ApiManager.add("users", newUser).then(user =>{
+          ApiManager.saveData("users", newUser).then(user =>{
             sessionStorage.setItem("credentials", parseInt(user.id))
             this.props.setAuth()
           }

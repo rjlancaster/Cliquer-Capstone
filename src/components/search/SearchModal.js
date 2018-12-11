@@ -29,7 +29,7 @@ export default class SearchModal extends React.Component {
   addShow = () => {
     let currentUserId = this.credentials
     let friendName = this.state.friendRecommendation
-    let friendId = this.props.friendsArray.find((friend) => friend.email === friendName)
+    let friendId = this.props.friendsArray.find((friend) => friend.username === friendName)
     if (friendId) {
       let object = {
         requesterID: currentUserId,

@@ -2,18 +2,23 @@
   "users": [
     {
       "id": 1,
-      "email": "Richard",
+      "username": "Richard",
       "password": "123"
     },
     {
       "id": 2,
-      "email": "Will",
+      "username": "Will",
       "password": "123"
     },
     {
       "id": 3,
-      "email": "Mark",
+      "username": "Mark",
       "password": "123"
+    },
+    {
+      "username": "Sam",
+      "password": "123",
+      "id": 4
     }
   ],
   "shows": [
@@ -22,7 +27,7 @@
       "requesterID": 2,
       "recipientID": 1,
       "apiID": 61671,
-      "rating": 0
+      "rating": 1
     },
     {
       "id": 2,
@@ -33,10 +38,59 @@
     },
     {
       "requesterID": 2,
-      "recipientID": 1,
-      "apiID": 464851,
+      "recipientID": 3,
+      "apiID": 66573,
       "rating": 0,
-      "id": 7
+      "id": 8
+    },
+    {
+      "requesterID": 2,
+      "recipientID": 1,
+      "apiID": 66573,
+      "rating": 1,
+      "id": 9
+    },
+    {
+      "requesterID": 2,
+      "recipientID": 1,
+      "apiID": 32726,
+      "rating": 1,
+      "id": 10
+    },
+    {
+      "requesterID": 2,
+      "recipientID": 1,
+      "apiID": 61888,
+      "rating": 0,
+      "id": 11
+    },
+    {
+      "requesterID": 2,
+      "recipientID": 1,
+      "apiID": 48891,
+      "rating": 0,
+      "id": 12
+    },
+    {
+      "requesterID": 2,
+      "recipientID": 1,
+      "apiID": 74321,
+      "rating": 1,
+      "id": 13
+    },
+    {
+      "requesterID": 1,
+      "recipientID": 2,
+      "apiID": 61575,
+      "rating": 0,
+      "id": 14
+    },
+    {
+      "requesterID": 1,
+      "recipientID": 3,
+      "apiID": 48891,
+      "rating": 0,
+      "id": 15
     }
   ],
   "relationships": [
@@ -46,14 +100,29 @@
       "friendId": 2
     },
     {
-      "id": 3,
-      "userId": 1,
-      "friendId": 3
-    },
-    {
       "userId": 2,
       "friendId": 1,
       "id": 4
+    },
+    {
+      "userId": 2,
+      "friendId": 3,
+      "id": 5
+    },
+    {
+      "userId": 4,
+      "friendId": 1,
+      "id": 6
+    },
+    {
+      "userId": 4,
+      "friendId": 2,
+      "id": 7
+    },
+    {
+      "userId": 1,
+      "friendId": 3,
+      "id": 8
     }
   ]
 }
