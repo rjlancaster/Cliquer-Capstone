@@ -2,6 +2,7 @@ import React from 'react';
 import { Button, Modal, ModalBody, ModalFooter } from 'reactstrap';
 import "./detail.css"
 import ApiManager from "../../module/ApiManager"
+// import greenchk from "../../images/greenchk"
 
 export default class DetailsModal extends React.Component {
   credentials = JSON.parse(sessionStorage.getItem('credentials'))
@@ -21,8 +22,6 @@ export default class DetailsModal extends React.Component {
         this.toggle()
         this.props.setRecsList()
       })
-      // this.props.yes()
-      // this.props.history.push("/recommendations")
   }
 
   upVote = () => {
@@ -58,8 +57,9 @@ export default class DetailsModal extends React.Component {
   render() {
     return (
       <div>
-        <div>
-          <img className="poster-Image" src={`https://image.tmdb.org/t/p/w300${this.props.show.image}`} onClick={this.toggle} alt="tv-poster" />
+        <div className="posterImageDiv">
+          <img src={`https://image.tmdb.org/t/p/w300${this.props.show.image}`} onClick={this.toggle} alt="tv-poster" />
+          <img className="greenchk" src={ require('./greenchk.png') } alt="greenchk" />
         </div>
         <Modal className="modal-container" size="xl" isOpen={this.state.modal} toggle={this.toggle} >
           <ModalBody>

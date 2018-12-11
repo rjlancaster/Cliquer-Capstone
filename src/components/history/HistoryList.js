@@ -51,9 +51,6 @@ export default class RecsList extends Component {
                 <div>
                   From {show.senderID}
                 </div>
-                <div>
-                  <Button color="danger">Remove</Button>
-                </div>
               </div>
             </div>
             )

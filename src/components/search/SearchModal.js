@@ -1,7 +1,6 @@
 import React from 'react';
-import { Button, Modal, ModalBody, ModalFooter } from 'reactstrap';
+import { Modal, ModalBody, ModalFooter } from 'reactstrap';
 import ApiManager from "../../module/ApiManager"
-// import ApplicationViews from "../ApplicationViews"
 import "./Search.css"
 
 export default class SearchModal extends React.Component {

@@ -1,7 +1,5 @@
 import React, { Component } from "react"
 import DetailsModal from "../detail/detailsModal"
-import { Button } from 'reactstrap';
-import ApiManager from "../../module/ApiManager"
 import "./Recs.css"
 
 export default class RecsList extends Component {
@@ -9,7 +7,6 @@ export default class RecsList extends Component {
 
   state = {
     showArray: [],
-     yes: false
   }
 
   componentDidMount() {
@@ -48,14 +45,12 @@ export default class RecsList extends Component {
       <section className="recs">
         {
           this.state.showArray.map(show => {
-            return (<div key={show.id} className="poster-Group" >
+            return (<div key={show.id} className="posterGroup" >
               <div>
-                <DetailsModal yes={this.setYes} show={show} setRecsList={this.setRecsList} {...this.props} />
+                <DetailsModal show={show} setRecsList={this.setRecsList} {...this.props} />
               </div>
               <div className="posterFooter">
-                <div>
                   From {show.senderID}
-                </div>
               </div>
             </div>
             )

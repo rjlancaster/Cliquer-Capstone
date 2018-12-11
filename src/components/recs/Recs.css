@@ -13,3 +13,8 @@
   flex-direction: row;
   justify-content: space-around;
 }
+
+.posterGroup {
+  display: flex;
+  flex-direction: column;
+}
