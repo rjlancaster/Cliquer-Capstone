@@ -51,7 +51,7 @@ export default class Search extends Component {
               className="searchText"
               type="text"
               id="search"
-              placeholder="Enter TV Show Title" />
+              placeholder="start a show search" />
           </div>
           <Button inverted color='grey' type="submit" onClick={this.constructNewSearch}>
             Submit

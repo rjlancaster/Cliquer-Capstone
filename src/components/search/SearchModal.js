@@ -71,8 +71,8 @@ export default class SearchModal extends React.Component {
               </div>
             </div >
           </ModalBody>
-          <ModalFooter>
-            <div className="sendRec">
+          <ModalFooter className="sendRec">
+            <div>
               <input
                 onChange={this.handleFieldChange}
                 className="showRecommendation"

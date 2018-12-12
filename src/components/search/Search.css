@@ -53,4 +53,11 @@
 
 .showRecommendation {
   align-items: center;
+  height: 30px;
+  border: none;
+  background-color: white;
+  border: 1px blue solid;
+  text-align: center;
+  font-size: 20px;
+  font-family: 'Montserrat', sans-serif;
 }

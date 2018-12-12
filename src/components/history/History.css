@@ -13,6 +13,8 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .posterGroup {
