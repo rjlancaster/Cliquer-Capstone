@@ -1,7 +1,7 @@
 .detail-group {
   display: flex;
   flex-direction: row;
-  background-color: darkslategrey;
+  background-color: black;
   color: white;
 }
 
@@ -23,5 +23,10 @@
   position: absolute;
   top: 20;
   right: 0;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
 }
 

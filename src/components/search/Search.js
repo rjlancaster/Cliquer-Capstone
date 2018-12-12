@@ -1,6 +1,6 @@
 import React, { Component } from "react"
-// import ApiManager from "../../module/ApiManager"
 import SearchList from "./SearchList"
+import { Button } from 'semantic-ui-react'
 
 export default class Search extends Component {
 
@@ -26,34 +26,38 @@ export default class Search extends Component {
         return data.results.map(data => {
           if (data.poster_path) {
             let selectedShowObject = {
-            image: data.poster_path,
-            title: data.original_name,
-            synopsis: data.overview,
-            apiID: data.id,
-            credentials: credentials
+              image: data.poster_path,
+              title: data.original_name,
+              synopsis: data.overview,
+              apiID: data.id,
+              credentials: credentials
+            }
+            return selectedShows.push(selectedShowObject)
           }
-          return selectedShows.push(selectedShowObject)
-        }
         })
 
 
       })
-      .then(() => this.setState({selectedShows: selectedShows}))
+      .then(() => this.setState({ selectedShows: selectedShows }))
   }
 
   render() {
     return (
       <React.Fragment>
-        <div className="navigation__container--left">
-          <input
-            onChange={this.handleFieldChange}
-            className="showInput"
-            type="text"
-            id="search"
-            placeholder="Enter TV Show Title" />
-          <button type="submit" onClick={this.constructNewSearch} className="btn btn-primary">Submit</button>
+        <div className="searchBox">
+          <div className="taco">
+            <input
+              onChange={this.handleFieldChange}
+              className="searchText"
+              type="text"
+              id="search"
+              placeholder="Enter TV Show Title" />
+          </div>
+          <Button inverted color='grey' type="submit" onClick={this.constructNewSearch}>
+            Submit
+      </Button>
         </div>
-        <SearchList {...this.props}  selectedShow={this.state.selectedShows} />
+        <SearchList {...this.props} selectedShow={this.state.selectedShows} />
       </React.Fragment>
     )
   }

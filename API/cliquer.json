@@ -84,6 +84,13 @@
       "apiID": 80079,
       "rating": 2,
       "id": 34
+    },
+    {
+      "requesterID": 2,
+      "recipientID": 1,
+      "apiID": 456,
+      "rating": 0,
+      "id": 35
     }
   ],
   "relationships": [

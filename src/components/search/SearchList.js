@@ -1,5 +1,4 @@
 import React, { Component } from "react"
-// import ApiManager from "../../module/ApiManager"
 import "./Search.css"
 import SearchModal from "./SearchModal"
 
@@ -14,12 +13,6 @@ export default class SearchList extends Component {
               <div>
                 <SearchModal show={show} {...this.props} />
               </div>
-              {/* <div>
-                <img className="poster-Image" src={`https://image.tmdb.org/t/p/w300${show.image}`} alt="tv-poster" />
-              </div>
-              <div>
-                <SearchModal {...this.props} show={show} />
-              </div> */}
             </div>
             )
           }
