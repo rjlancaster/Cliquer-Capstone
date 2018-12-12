@@ -13,3 +13,28 @@
   flex-direction: row;
   justify-content: space-around;
 }
+
+.posterGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.posterImageDiv {
+  border: 0;
+  float: left;
+  position: relative;
+  margin: 30px;
+}
+
+.hidden {
+  display: none;
+}
+
+.displayYes {
+  width: 75px;
+  height: 75px;
+  border: 0;
+  position: absolute;
+  top: 20;
+  right: 0;
+}

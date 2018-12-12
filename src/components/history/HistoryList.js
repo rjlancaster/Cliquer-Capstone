@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 // import DataManager from "../../module/DataManager"
-import DetailsModal from "../detail/detailsModal"
+import HistoryModal from "./HistoryModal"
 import { Button } from 'reactstrap';
 import "./History.css"
 
@@ -12,6 +12,10 @@ export default class RecsList extends Component {
   }
 
   componentDidMount() {
+    this.setRecsList()
+  }
+
+  setRecsList = () => {
     let showArray = []
     this.props.shows.filter((show => this.credentials === show.recipientID))
       .map(show => {
@@ -20,6 +24,15 @@ export default class RecsList extends Component {
           return fetch(url)
             .then(data => data.json())
             .then(data => {
+              let greenchk = ""
+              let redx = ""
+              if (show.rating === 1) {
+                greenchk = "displayYes"
+                redx = "hidden"
+              } else if (show.rating === 2) {
+                greenchk = "hidden"
+                redx = "displayYes"
+              }
               let senderID = []
               senderID.push(this.props.users.find((user) => show.requesterID === user.id))
               let showObject = {
@@ -29,6 +42,9 @@ export default class RecsList extends Component {
                 synopsis: data.overview,
                 apiID: data.id,
                 senderID: senderID[0].username,
+                rating: show.rating,
+                greenchk: greenchk,
+                redx: redx,
                 userID: this.credentials
               }
               showArray.push(showObject)
@@ -43,14 +59,12 @@ export default class RecsList extends Component {
       <section className="recs">
         {
           this.state.showArray.map(show => {
-            return (<div key={show.id} className="poster-Group" >
+            return (<div key={show.id} className="posterGroup" >
               <div>
-                <DetailsModal show={show} {...this.props} />
+                <HistoryModal show={show} setRecsList={this.setRecsList} {...this.props} />
               </div>
-              <div class="posterFooter">
-                <div>
+              <div className="posterFooter">
                   From {show.senderID}
-                </div>
               </div>
             </div>
             )
@@ -61,3 +75,38 @@ export default class RecsList extends Component {
     )
   }
 }
+
+
+
+
+
+
+
+
+// createMarkup() {
+//   if (this.props.show.rating === 1) {
+//     return {
+//       __html: <img class="ratingImg" src={require('./greenchk.png')} alt="greenchk" />
+//     }
+//   }
+//   else if (this.props.show.rating === 2) {
+//     return {
+//       __html: <img class="ratingImg" src={require('./redx.png')} alt="redx"
+//       />
+//     }
+//   }
+// }
+
+// setRating() {
+//   return <div dangerouslySetInnerHTML={this.createMarkup()} />
+// }
+
+  // state = {
+  //   showCheck: "hidden",
+  //   showX: "hidden"
+  // }
+
+  // componentDidMount = () => {
+  //   this.toggleCheck()
+  //   this.toggleX()
+  // }

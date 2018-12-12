@@ -1,9 +1,10 @@
 import React from 'react';
 import { Button, Modal, ModalBody, ModalFooter } from 'reactstrap';
-import "./detail.css"
+import "./HistoryModal.css"
 import ApiManager from "../../module/ApiManager"
+// import greenchk from "../../images/greenchk"
 
-export default class DetailsModal extends React.Component {
+export default class HistoryModal extends React.Component {
   credentials = JSON.parse(sessionStorage.getItem('credentials'))
   constructor(props) {
     super(props);
@@ -58,6 +59,8 @@ export default class DetailsModal extends React.Component {
       <div>
         <div className="posterImageDiv">
           <img src={`https://image.tmdb.org/t/p/w300${this.props.show.image}`} onClick={this.toggle} alt="tv-poster" />
+          <img className={this.props.show.greenchk} src={ require('./greenchk.png') } alt="greenchk" />
+          <img className={this.props.show.redx} src={ require('./redx.png') } alt="redx" />
         </div>
         <Modal className="modal-container" size="xl" isOpen={this.state.modal} toggle={this.toggle} >
           <ModalBody>

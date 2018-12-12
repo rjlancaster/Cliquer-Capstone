@@ -1,25 +1,15 @@
-.recs {
+.detail-group {
   display: flex;
   flex-direction: row;
+  background-color: darkslategrey;
+  color: white;
 }
 
-.poster-Image {
-  margin: 20px;
-
+.modal-container {
+  position: relative;
 }
 
-.posterFooter {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-}
-
-.posterGroup {
-  display: flex;
-  flex-direction: column;
-}
-
-/* .posterImageDiv {
+.posterImageDiv {
   border: 0;
   float: left;
   position: relative;
@@ -33,7 +23,9 @@
 .displayYes {
   width: 50px;
   height: 50px;
+  border: 0;
   position: absolute;
   top: 20;
   right: 0;
-} */
+}
+

@@ -47,7 +47,7 @@
       "requesterID": 1,
       "recipientID": 2,
       "apiID": 31677,
-      "rating": 0,
+      "rating": 2,
       "id": 19
     },
     {
@@ -56,41 +56,6 @@
       "apiID": 14266,
       "rating": 0,
       "id": 29
-    },
-    {
-      "requesterID": 1,
-      "recipientID": 2,
-      "apiID": 44549,
-      "rating": 0,
-      "id": 30
-    },
-    {
-      "requesterID": 1,
-      "recipientID": 2,
-      "apiID": 80656,
-      "rating": 0,
-      "id": 32
-    },
-    {
-      "requesterID": 1,
-      "recipientID": 2,
-      "apiID": 16769,
-      "rating": 0,
-      "id": 33
-    },
-    {
-      "requesterID": 1,
-      "recipientID": 2,
-      "apiID": 128287,
-      "rating": 0,
-      "id": 34
-    },
-    {
-      "requesterID": 1,
-      "recipientID": 2,
-      "apiID": 1963,
-      "rating": 0,
-      "id": 35
     }
   ],
   "relationships": [
