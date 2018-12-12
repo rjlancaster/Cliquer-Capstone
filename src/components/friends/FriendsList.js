@@ -37,7 +37,6 @@ export default class FriendsList extends Component {
     let userFriendMatch = []
     userIdArray.push(this.props.users.find(user => user.username === this.state.delFriend))
     userFriendMatch.push(this.props.relationships.find(user => user.friendId === userIdArray[0].id && user.userId === currentUserId))
-    console.log(userFriendMatch)
     return ApiManager.deleteData("relationships", userFriendMatch[0].id)
       .then(() => {
         return this.props.findFriends(currentUserId)
