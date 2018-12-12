@@ -1,6 +1,7 @@
 .searchList {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .detail-group {
@@ -8,6 +9,7 @@
   flex-direction: row;
   background-color: darkslategrey;
   color: white;
+  flex-wrap: wrap;
 }
 
 .modal-container {

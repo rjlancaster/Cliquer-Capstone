@@ -1,6 +1,7 @@
 .recs {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .poster-Image {
