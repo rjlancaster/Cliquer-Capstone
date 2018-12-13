@@ -1,0 +1,15 @@
+.friendList {
+  font-size: 100px;
+  font-weight: bold;
+}
+
+.userList {
+  font-size: 100px;
+  font-weight: bold;
+}
+
+.clique {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}

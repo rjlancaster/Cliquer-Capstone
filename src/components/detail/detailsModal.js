@@ -1,5 +1,6 @@
 import React from 'react';
-import { Button, Modal, ModalBody, ModalFooter } from 'reactstrap';
+import { Modal, ModalBody, ModalFooter } from 'reactstrap';
+import { Button } from 'semantic-ui-react'
 import "./detail.css"
 import ApiManager from "../../module/ApiManager"
 
@@ -71,10 +72,16 @@ export default class DetailsModal extends React.Component {
               </div>
             </div >
           </ModalBody>
-          <ModalFooter>
-            <Button color="primary" onClick={this.upVote}>Love It!</Button>
-            <Button color="secondary" onClick={this.downVote}>Hate It!</Button>
-            <Button color="danger" onClick={this.removeShow}>Remove</Button>
+          <ModalFooter className="footer">
+            <div>
+              <Button.Group>
+                <Button color="green" onClick={this.upVote}>Love It</Button>
+                <Button.Or />
+                <Button color="black" onClick={this.downVote}>Hate It</Button>
+                <Button.Or />
+                <Button color="grey" onClick={this.removeShow}>Toss It</Button>
+              </Button.Group>
+            </div>
           </ModalFooter>
         </Modal>
       </div>

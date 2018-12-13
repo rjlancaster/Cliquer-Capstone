@@ -60,8 +60,10 @@ export default class SearchModal extends React.Component {
         <Modal className="modal-container" size="xl" isOpen={this.state.modal} toggle={this.toggle} >
           <ModalBody>
             <div className="detail-group">
-              <div>
-                <img className="" src={`https://image.tmdb.org/t/p/w300${this.props.show.image}`} alt="tv-poster" />
+              <div className="image">
+                <div>
+                  <img className="" src={`https://image.tmdb.org/t/p/w300${this.props.show.image}`} alt="tv-poster" />
+                </div>
               </div>
               <div>
                 <h4>{this.props.show.title}</h4>
@@ -69,8 +71,8 @@ export default class SearchModal extends React.Component {
               </div>
             </div >
           </ModalBody>
-          <ModalFooter>
-            <div className="navigation__container--left">
+          <ModalFooter className="sendRec">
+            <div>
               <input
                 onChange={this.handleFieldChange}
                 className="showRecommendation"

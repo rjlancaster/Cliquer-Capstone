@@ -7,11 +7,57 @@
 .detail-group {
   display: flex;
   flex-direction: row;
-  background-color: darkslategrey;
+  background-color: black;
   color: white;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .modal-container {
   position: relative;
+  background-color: black !important;
+}
+
+.searchText[type="text"] {
+  flex-basis: 90%;
+  justify-content: center;
+  height: 60px;
+  border: none;
+  border-bottom: 1px solid black;
+  background-color: rgb(245, 240, 240);
+  text-align: center;
+  font-size: 50px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.searchText[type="text"]:focus {
+  outline: none;
+  border-bottom: 1px solid rgb(142, 162, 218);
+}
+
+.searchBox {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.image {
+  display: flex;
+  justify-content: center;
+}
+
+.sendRec {
+  display: flex;
+  justify-content: center;
+}
+
+.showRecommendation {
+  align-items: center;
+  height: 30px;
+  border: none;
+  background-color: white;
+  border: 1px blue solid;
+  text-align: center;
+  font-size: 20px;
+  font-family: 'Montserrat', sans-serif;
 }

@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import { Link } from "react-router-dom"
-import { Menu, Icon, Button } from 'semantic-ui-react'
+import { Menu } from 'semantic-ui-react'
 import "bootstrap/dist/css/bootstrap.min.css"
 import "./NavBar.css"
 
