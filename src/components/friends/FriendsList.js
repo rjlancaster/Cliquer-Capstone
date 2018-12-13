@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import ApiManager from "../../module/ApiManager"
+import "./Friends.css"
 
 export default class FriendsList extends Component {
   credentials = JSON.parse(sessionStorage.getItem('credentials'))
@@ -46,37 +47,54 @@ export default class FriendsList extends Component {
   render() {
     return (
       <React.Fragment>
-        <section className="friendList">
-          <p>Friend List:</p>
-          {
-            this.props.friendsArray.map(friend => {
-              return (<div className="friend-Group" key={friend.id}>
-                <div>
-                  <p>{friend.username}</p>
-                </div>
-              </div>
-              )
-            })
-          }
-        </section>
-        <section className="addFriend">
-          <p>Add a friend:</p>
-          <input
-            onChange={this.handleFieldChange}
-            className="showInput"
-            type="text"
-            id="addFriend" />
-          <button type="submit" onClick={this.addRelationship} className="btn btn-primary">Submit</button>
-        </section>
-        <section className="removeFriend">
-          <p>Remove a friend:</p>
-          <input
-            onChange={this.handleFieldChange}
-            className="showInput"
-            type="text"
-            id="delFriend" />
-          <button type="submit" onClick={this.removeRelationship} className="btn btn-primary">Submit</button>
-        </section>
+        <div className="clique">
+          <div>
+            <section className="friendList">
+              <p>My Clique</p>
+              {
+                this.props.friendsArray.map(friend => {
+                  return (<div className="friend-Group" key={friend.id}>
+                    <div>
+                      <p>{friend.username}</p>
+                    </div>
+                  </div>
+                  )
+                })
+              }
+            </section>
+            <section className="addFriend">
+              <p>Add a friend:</p>
+              <input
+                onChange={this.handleFieldChange}
+                className="showInput"
+                type="text"
+                id="addFriend" />
+              <button type="submit" onClick={this.addRelationship} className="btn btn-primary">Submit</button>
+            </section>
+            <section className="removeFriend">
+              <p>Remove a friend:</p>
+              <input
+                onChange={this.handleFieldChange}
+                className="showInput"
+                type="text"
+                id="delFriend" />
+              <button type="submit" onClick={this.removeRelationship} className="btn btn-primary">Submit</button>
+            </section>
+          </div>
+          <div className="userList">
+            <p>User List</p>
+            {
+                this.props.users.map(user => {
+                  return (<div className="userGroup" key={user.id}>
+                    <div>
+                      <p>{user.username}</p>
+                    </div>
+                  </div>
+                  )
+                })
+              }
+          </div>
+        </div>
       </React.Fragment>
     )
   }

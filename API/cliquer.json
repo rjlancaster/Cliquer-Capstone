@@ -12,13 +12,53 @@
     },
     {
       "id": 3,
-      "username": "Mark",
+      "username": "Brenda",
       "password": "123"
     },
     {
-      "username": "Sam",
+      "username": "Mark",
       "password": "123",
       "id": 4
+    },
+    {
+      "username": "Jamie",
+      "password": "123",
+      "id": 5
+    },
+    {
+      "username": "Patrick",
+      "password": "123",
+      "id": 6
+    },
+    {
+      "username": "David",
+      "password": "123",
+      "id": 7
+    },
+    {
+      "username": "Kristen",
+      "password": "123",
+      "id": 8
+    },
+    {
+      "username": "Charlie",
+      "password": "123",
+      "id": 9
+    },
+    {
+      "username": "Bernard",
+      "password": "123",
+      "id": 10
+    },
+    {
+      "username": "John",
+      "password": "123",
+      "id": 11
+    },
+    {
+      "username": "Mike",
+      "password": "123",
+      "id": 12
     }
   ],
   "shows": [
@@ -121,8 +161,13 @@
     },
     {
       "userId": 1,
+      "friendId": 4,
+      "id": 9
+    },
+    {
+      "userId": 1,
       "friendId": 3,
-      "id": 8
+      "id": 10
     }
   ]
 }
