@@ -1,0 +1,65 @@
+.recs {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.poster-Image {
+  margin: 20px;
+
+}
+
+.posterFooter {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.posterGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.posterImageDiv {
+  border: 0;
+  float: left;
+  position: relative;
+  margin: 30px;
+}
+
+.hidden {
+  display: none;
+}
+
+.displayYes {
+  width: 75px;
+  height: 75px;
+  border: 0;
+  position: absolute;
+  top: 20;
+  right: 0;
+}
+
+.detail-group {
+  display: flex;
+  flex-direction: row;
+  background-color: black;
+  color: white;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.detailImage {
+  margin: 20px;
+}
+
+.titleAndSynopsis {
+  margin: 20px;
+}
+
+.taco {
+  display: flex;
+  flex-direction: row;
+}

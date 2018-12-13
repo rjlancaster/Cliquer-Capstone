@@ -131,6 +131,13 @@
       "apiID": 456,
       "rating": 0,
       "id": 35
+    },
+    {
+      "requesterID": 1,
+      "recipientID": 2,
+      "apiID": 32726,
+      "rating": 0,
+      "id": 36
     }
   ],
   "relationships": [
