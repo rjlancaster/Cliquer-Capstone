@@ -64,9 +64,9 @@ export default class DetailsModal extends React.Component {
           <ModalBody>
             <div className="detail-group">
               <div>
-                <img className="" src={`https://image.tmdb.org/t/p/w300${this.props.show.image}`} alt="tv-poster" />
+                <img className="detailImage" src={`https://image.tmdb.org/t/p/w300${this.props.show.image}`} alt="tv-poster" />
               </div>
-              <div>
+              <div className="titleAndSynopsis">
                 <h4>{this.props.show.title}</h4>
                 <p>{this.props.show.synopsis}</p>
               </div>

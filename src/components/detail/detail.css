@@ -9,6 +9,14 @@
   position: relative;
 }
 
+.detailImage {
+  margin: 20px;
+}
+
+.titleAndSynopsis {
+  margin: 20px;
+}
+
 .posterImageDiv {
   border: 0;
   float: left;
