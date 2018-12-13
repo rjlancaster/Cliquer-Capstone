@@ -96,7 +96,7 @@ export default class HistoryModal extends React.Component {
                 <div className="taco">
                   <img className="detailImage" src={`https://image.tmdb.org/t/p/w300${this.props.show.image}`} alt="tv-poster" />
                   <YouTube
-                    className="detailImage"
+                    className="detailVideo"
                     videoId={this.state.showVideo.videoID}
                     opts={opts}
                     onReady={this._onReady}
