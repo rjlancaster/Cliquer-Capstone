@@ -41,3 +41,25 @@
   top: 20;
   right: 0;
 }
+
+.detail-group {
+  display: flex;
+  flex-direction: row;
+  background-color: black;
+  color: white;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.detailImage {
+  margin: 20px;
+}
+
+.titleAndSynopsis {
+  margin: 20px;
+}
+
+.taco {
+  display: flex;
+  flex-direction: row;
+}
