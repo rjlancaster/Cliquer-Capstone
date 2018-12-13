@@ -138,6 +138,13 @@
       "apiID": 32726,
       "rating": 0,
       "id": 36
+    },
+    {
+      "requesterID": 1,
+      "recipientID": 2,
+      "apiID": 70453,
+      "rating": 1,
+      "id": 37
     }
   ],
   "relationships": [

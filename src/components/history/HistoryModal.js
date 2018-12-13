@@ -89,12 +89,12 @@ export default class HistoryModal extends React.Component {
           <img className={this.props.show.greenchk} src={require('./greenchk.png')} alt="greenchk" />
           <img className={this.props.show.redx} src={require('./redx.png')} alt="redx" />
         </div>
-        <Modal className="modal-container" size="xl" isOpen={this.state.modal} toggle={this.toggle} >
+        <Modal className="modal-container modalSize" size="xl" isOpen={this.state.modal} toggle={this.toggle} >
           <ModalBody>
             <div className="detail-group">
             <div className="image">
                 <div className="taco">
-                  <img className="detailImage" src={`https://image.tmdb.org/t/p/w185${this.props.show.image}`} alt="tv-poster" />
+                  <img className="detailImage" src={`https://image.tmdb.org/t/p/w300${this.props.show.image}`} alt="tv-poster" />
                   <YouTube
                     className="detailImage"
                     videoId={this.state.showVideo.videoID}

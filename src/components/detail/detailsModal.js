@@ -87,7 +87,7 @@ export default class DetailsModal extends React.Component {
         <div className="posterImageDiv">
           <img src={`https://image.tmdb.org/t/p/w300${this.props.show.image}`} onClick={this.toggle} alt="tv-poster" />
         </div>
-        <Modal className="modal-container" size="xl" isOpen={this.state.modal} toggle={this.toggle} >
+        <Modal className="modal-container modalSize" size="xl" isOpen={this.state.modal} toggle={this.toggle} >
           <ModalBody>
             <div className="detail-group">
               <div className="image">

@@ -45,3 +45,7 @@
   flex-direction: row;
 }
 
+.modalSize {
+  max-width: 80% !important;
+}
+

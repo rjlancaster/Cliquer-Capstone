@@ -89,7 +89,7 @@ export default class ResultsModal extends React.Component {
           <img className={this.props.show.greenchk} src={require('./greenchk.png')} alt="greenchk" />
           <img className={this.props.show.redx} src={require('./redx.png')} alt="redx" />
         </div>
-        <Modal className="modal-container" size="xl" isOpen={this.state.modal} toggle={this.toggle} >
+        <Modal className="modal-container modalSize" size="xl" isOpen={this.state.modal} toggle={this.toggle} >
           <ModalBody>
             <div className="detail-group">
             <div className="image">
