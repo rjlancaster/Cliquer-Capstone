@@ -1,12 +1,22 @@
 .detail-group {
-  display: flex;
-  flex-direction: row;
-  background-color: black;
-  color: white;
+    display: flex;
+    flex-direction: row;
+    background-color: black;
+    color: white;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .modal-container {
   position: relative;
+}
+
+.detailImage {
+  margin: 20px;
+}
+
+.titleAndSynopsis {
+  margin: 20px;
 }
 
 .posterImageDiv {
@@ -28,5 +38,10 @@
 .footer {
   display: flex;
   justify-content: center;
+}
+
+.taco {
+  display: flex;
+  flex-direction: row;
 }
 

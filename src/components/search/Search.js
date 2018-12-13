@@ -35,8 +35,6 @@ export default class Search extends Component {
             return selectedShows.push(selectedShowObject)
           }
         })
-
-
       })
       .then(() => this.setState({ selectedShows: selectedShows }))
   }

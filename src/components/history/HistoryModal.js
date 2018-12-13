@@ -1,16 +1,21 @@
 import React from 'react';
 import { Modal, ModalBody, ModalFooter } from 'reactstrap';
 import { Button } from 'semantic-ui-react'
+import YouTube from 'react-youtube'
 import "./HistoryModal.css"
 import ApiManager from "../../module/ApiManager"
 // import greenchk from "../../images/greenchk"
 
 export default class HistoryModal extends React.Component {
   credentials = JSON.parse(sessionStorage.getItem('credentials'))
+  state = {
+    showVideo: []
+  }
   constructor(props) {
     super(props);
     this.state = {
-      modal: false
+      modal: false,
+      showVideo: {}
     };
 
     this.toggle = this.toggle.bind(this);
@@ -49,27 +54,56 @@ export default class HistoryModal extends React.Component {
       })
   }
 
+  constructVideoSearch = evt => {
+    const url = `https://api.themoviedb.org/3/tv/${this.props.show.apiID}/videos?api_key=71beceaec7947e27f4fa92aadc09db8c&language=en-US`
+    return fetch(url)
+      .then(data => data.json())
+      .then(data => {
+        let showVideoID = {
+          videoID: data.results[0].key
+        }
+        this.setState({ showVideo: showVideoID })
+      })
+  }
+
   toggle() {
     this.setState({
       modal: !this.state.modal
     });
+    this.constructVideoSearch()
   }
 
   render() {
+    const opts = {
+      height: '390',
+      width: '640',
+      playerVars: {
+        // https://developers.google.com/youtube/player_parameters
+        autoplay: 0
+      }
+    }
     return (
       <div>
         <div className="posterImageDiv">
           <img src={`https://image.tmdb.org/t/p/w300${this.props.show.image}`} onClick={this.toggle} alt="tv-poster" />
-          <img className={this.props.show.greenchk} src={ require('./greenchk.png') } alt="greenchk" />
-          <img className={this.props.show.redx} src={ require('./redx.png') } alt="redx" />
+          <img className={this.props.show.greenchk} src={require('./greenchk.png')} alt="greenchk" />
+          <img className={this.props.show.redx} src={require('./redx.png')} alt="redx" />
         </div>
         <Modal className="modal-container" size="xl" isOpen={this.state.modal} toggle={this.toggle} >
           <ModalBody>
             <div className="detail-group">
-              <div>
-                <img className="" src={`https://image.tmdb.org/t/p/w300${this.props.show.image}`} alt="tv-poster" />
+            <div className="image">
+                <div className="taco">
+                  <img className="detailImage" src={`https://image.tmdb.org/t/p/w300${this.props.show.image}`} alt="tv-poster" />
+                  <YouTube
+                    className="detailImage"
+                    videoId={this.state.showVideo.videoID}
+                    opts={opts}
+                    onReady={this._onReady}
+                  />
+                </div>
               </div>
-              <div>
+              <div className="titleAndSynopsis">
                 <h4>{this.props.show.title}</h4>
                 <p>{this.props.show.synopsis}</p>
               </div>
