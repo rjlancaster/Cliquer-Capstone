@@ -63,7 +63,7 @@ export default class FriendsList extends Component {
               }
             </section>
             <section className="addFriend">
-              <p>Add a friend:</p>
+              <p>Add to clique:</p>
               <input
                 onChange={this.handleFieldChange}
                 className="showInput"
@@ -72,7 +72,7 @@ export default class FriendsList extends Component {
               <button type="submit" onClick={this.addRelationship} className="btn btn-primary">Submit</button>
             </section>
             <section className="removeFriend">
-              <p>Remove a friend:</p>
+              <p>Remove from clique:</p>
               <input
                 onChange={this.handleFieldChange}
                 className="showInput"

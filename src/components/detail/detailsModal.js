@@ -37,7 +37,8 @@ export default class DetailsModal extends React.Component {
     ApiManager.editData("shows", this.props.show.showId, upVote)
       .then(() => this.props.getShows())
       .then(this.setState({ modal: !this.state.modal })
-      ).then(() => {
+      )
+      .then(() => {
         this.props.history.push("/history")
       })
   }
@@ -49,7 +50,8 @@ export default class DetailsModal extends React.Component {
     ApiManager.editData("shows", this.props.show.showId, downVote)
       .then(() => this.props.getShows())
       .then(this.setState({ modal: !this.state.modal })
-      ).then(() => {
+      )
+      .then(() => {
         this.props.history.push("/history")
       })
   }
@@ -85,16 +87,16 @@ export default class DetailsModal extends React.Component {
     return (
       <div>
         <div className="posterImageDiv">
-          <img src={`https://image.tmdb.org/t/p/w300${this.props.show.image}`} onClick={this.toggle} alt="tv-poster" />
+          <img src={`https://image.tmdb.org/t/p/w300${this.props.show.image}`} onClick={this.toggle} alt="tv-poster" style={{cursor: 'pointer'}} />
         </div>
-        <Modal className="modal-container" size="xl" isOpen={this.state.modal} toggle={this.toggle} >
+        <Modal className="modal-container modalSize" size="xl" isOpen={this.state.modal} toggle={this.toggle} >
           <ModalBody>
             <div className="detail-group">
               <div className="image">
                 <div className="taco">
                   <img className="detailImage" src={`https://image.tmdb.org/t/p/w300${this.props.show.image}`} alt="tv-poster" />
                   <YouTube
-                    className="detailImage"
+                    className="detailVideo"
                     videoId={this.state.showVideo.videoID}
                     opts={opts}
                     onReady={this._onReady}

@@ -2,11 +2,11 @@ import React from 'react';
 import { Modal, ModalBody, ModalFooter } from 'reactstrap';
 import { Button } from 'semantic-ui-react'
 import YouTube from 'react-youtube'
-import "./HistoryModal.css"
+import "./ResultsModal.css"
 import ApiManager from "../../module/ApiManager"
 // import greenchk from "../../images/greenchk"
 
-export default class HistoryModal extends React.Component {
+export default class ResultsModal extends React.Component {
   credentials = JSON.parse(sessionStorage.getItem('credentials'))
   state = {
     showVideo: []
@@ -85,7 +85,7 @@ export default class HistoryModal extends React.Component {
     return (
       <div>
         <div className="posterImageDiv">
-          <img src={`https://image.tmdb.org/t/p/w185${this.props.show.image}`} onClick={this.toggle} alt="tv-poster" style={{cursor: 'pointer'}}/>
+          <img src={`https://image.tmdb.org/t/p/w185${this.props.show.image}`} onClick={this.toggle} alt="tv-poster" style={{cursor: 'pointer'}} />
           <img className={this.props.show.greenchk} src={require('./greenchk.png')} alt="greenchk" />
           <img className={this.props.show.redx} src={require('./redx.png')} alt="redx" />
         </div>

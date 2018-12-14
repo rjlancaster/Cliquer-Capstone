@@ -74,3 +74,12 @@
 .titleAndSynopsis {
   margin: 20px;
 }
+
+.modalSize {
+  max-width: 80% !important;
+}
+
+.searchBtn {
+  margin-bottom: 6px;
+  margin-left: 5px;
+}

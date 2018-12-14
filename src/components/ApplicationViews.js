@@ -2,6 +2,7 @@ import { Route } from 'react-router-dom'
 import React, { Component } from "react"
 import RecsList from './recs/RecsList'
 import HistoryList from './history/HistoryList'
+import ResultsList from './results/ResultsList'
 import FriendsList from './friends/FriendsList'
 import Search from './search/Search'
 import ApiManager from '../module/ApiManager'
@@ -70,6 +71,9 @@ export default class ApplicationViews extends Component {
           }} />
           <Route path="/history" render={(props) => {
             return <HistoryList shows={this.state.shows} users={this.state.users} getShows={this.getShows} {...props} />
+          }} />
+          <Route path="/results" render={(props) => {
+            return <ResultsList shows={this.state.shows} users={this.state.users} getShows={this.getShows} {...props} />
           }} />
           <Route path="/friends" render={(props) => {
             return <FriendsList users={this.state.users} relationships={this.state.relationships} friendsArray={this.state.friendsArray} findFriends={this.findFriends} />

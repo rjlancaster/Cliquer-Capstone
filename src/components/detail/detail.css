@@ -15,6 +15,10 @@
   margin: 20px;
 }
 
+.detailVideo {
+  margin: 50px 20px;
+}
+
 .titleAndSynopsis {
   margin: 20px;
 }
@@ -43,5 +47,9 @@
 .taco {
   display: flex;
   flex-direction: row;
+}
+
+.modalSize {
+  max-width: 80% !important;
 }
 

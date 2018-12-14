@@ -1,8 +1,10 @@
 import React, { Component } from "react"
-import HistoryModal from "./HistoryModal"
-import "./History.css"
+// import DataManager from "../../module/DataManager"
+import ResultsModal from "./ResultsModal"
+// import { Button } from 'reactstrap';
+import "./Results.css"
 
-export default class RecsList extends Component {
+export default class ResultsList extends Component {
   credentials = JSON.parse(sessionStorage.getItem('credentials'))
 
   state = {
@@ -15,7 +17,7 @@ export default class RecsList extends Component {
 
   setRecsList = () => {
     let showArray = []
-    this.props.shows.filter((show => this.credentials === show.recipientID))
+    this.props.shows.filter((show => this.credentials === show.requesterID))
       .map(show => {
         if (show.rating !== 0) {
           const url = `https://api.themoviedb.org/3/tv/${show.apiID}?api_key=71beceaec7947e27f4fa92aadc09db8c`
@@ -31,15 +33,15 @@ export default class RecsList extends Component {
                 greenchk = "hidden"
                 redx = "displayYes"
               }
-              let senderID = []
-              senderID.push(this.props.users.find((user) => show.requesterID === user.id))
+              let recipientID = []
+              recipientID.push(this.props.users.find((user) => show.recipientID === user.id))
               let showObject = {
                 showId: show.id,
                 image: data.poster_path,
                 title: data.original_name,
                 synopsis: data.overview,
                 apiID: data.id,
-                senderID: senderID[0].username,
+                recipientID: recipientID[0].username,
                 rating: show.rating,
                 greenchk: greenchk,
                 redx: redx,
@@ -59,10 +61,10 @@ export default class RecsList extends Component {
           this.state.showArray.map(show => {
             return (<div key={show.id} className="posterGroup" >
               <div>
-                <HistoryModal show={show} setRecsList={this.setRecsList} {...this.props} />
+                <ResultsModal show={show} setRecsList={this.setRecsList} {...this.props} />
               </div>
               <div className="posterFooter">
-                  From {show.senderID}
+                  Rated by {show.recipientID}
               </div>
             </div>
             )

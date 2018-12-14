@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import ApiManager from "../../module/ApiManager"
-import { Button, Form, Grid, Header, Image, Segment, Divider, Message } from 'semantic-ui-react'
+import { Button, Form, Grid, Header, Segment, Divider } from 'semantic-ui-react'
 import "./login.css"
 
 export default class Login extends Component {
