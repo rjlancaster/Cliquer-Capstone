@@ -185,8 +185,29 @@
       "requesterID": 8,
       "recipientID": 1,
       "apiID": 32726,
-      "rating": 0,
+      "rating": 1,
       "id": 45
+    },
+    {
+      "requesterID": 1,
+      "recipientID": 4,
+      "apiID": 1405,
+      "rating": 0,
+      "id": 46
+    },
+    {
+      "requesterID": 1,
+      "recipientID": 2,
+      "apiID": 2710,
+      "rating": 0,
+      "id": 47
+    },
+    {
+      "requesterID": 1,
+      "recipientID": 2,
+      "apiID": 67697,
+      "rating": 0,
+      "id": 48
     }
   ],
   "relationships": [
@@ -274,6 +295,11 @@
       "userId": 3,
       "friendId": 1,
       "id": 14
+    },
+    {
+      "userId": 1,
+      "friendId": 5,
+      "id": 15
     }
   ]
 }

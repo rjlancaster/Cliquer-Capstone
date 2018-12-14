@@ -85,7 +85,7 @@ export default class HistoryModal extends React.Component {
     return (
       <div>
         <div className="posterImageDiv">
-          <img src={`https://image.tmdb.org/t/p/w185${this.props.show.image}`} onClick={this.toggle} alt="tv-poster" />
+          <img src={`https://image.tmdb.org/t/p/w185${this.props.show.image}`} onClick={this.toggle} alt="tv-poster" style={{cursor: 'pointer'}}/>
           <img className={this.props.show.greenchk} src={require('./greenchk.png')} alt="greenchk" />
           <img className={this.props.show.redx} src={require('./redx.png')} alt="redx" />
         </div>

@@ -88,7 +88,7 @@ export default class SearchModal extends React.Component {
       <React.Fragment>
         <div>
           <div>
-            <img className="poster-Image" src={`https://image.tmdb.org/t/p/w300${this.props.show.image}`} onClick={this.toggle} alt="tv-poster" />
+            <img className="poster-Image" src={`https://image.tmdb.org/t/p/w300${this.props.show.image}`} onClick={this.toggle} alt="tv-poster" style={{cursor: 'pointer'}}/>
           </div>
           <Modal className="modal-container modalSize" size="xl" isOpen={this.state.modal} toggle={this.toggle} >
             <ModalBody>
@@ -118,7 +118,7 @@ export default class SearchModal extends React.Component {
                   type="text"
                   id="friendRecommendation"
                   placeholder="Recommend this show to a friend!" />
-                <button type="submit" onClick={this.addShow} className="btn btn-primary">Submit</button>
+                <button type="submit" onClick={this.addShow} className="btn btn-primary searchBtn">Submit</button>
               </div>
             </ModalFooter>
           </Modal>

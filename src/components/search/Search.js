@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import SearchList from "./SearchList"
 import { Button } from 'semantic-ui-react'
+import "./Search.css"
 
 export default class Search extends Component {
 

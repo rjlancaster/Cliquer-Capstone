@@ -1,7 +1,5 @@
 import React, { Component } from "react"
-// import DataManager from "../../module/DataManager"
 import HistoryModal from "./HistoryModal"
-import { Button } from 'reactstrap';
 import "./History.css"
 
 export default class RecsList extends Component {
