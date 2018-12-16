@@ -1,12 +1,11 @@
 import React from 'react';
 import { Modal, ModalBody, ModalFooter } from 'reactstrap';
-// import { Button } from 'semantic-ui-react'
 import ApiManager from "../../module/ApiManager"
 import YouTube from 'react-youtube'
 import "./Search.css"
 
 export default class SearchModal extends React.Component {
-  credentials = JSON.parse(sessionStorage.getItem('credentials'))
+  credentials = parseInt(sessionStorage.getItem('credentials'))
 
   state = {
     friendRecommendation: [],
@@ -30,6 +29,7 @@ export default class SearchModal extends React.Component {
     this.setState(stateToChange)
   }
 
+  // adds a show to a friends recommendation list
   addShow = () => {
     let currentUserId = this.credentials
     let friendName = this.state.friendRecommendation
@@ -50,24 +50,35 @@ export default class SearchModal extends React.Component {
     }
   }
 
-  constructVideoSearch = evt => {
+  // required search to aquire YouTube video id
+  constructVideoSearch = () => {
     const url = `https://api.themoviedb.org/3/tv/${this.props.show.apiID}/videos?api_key=71beceaec7947e27f4fa92aadc09db8c&language=en-US`
     return fetch(url)
       .then(data => data.json())
       .then(data => {
-        let showVideoID = {
-          videoID: data.results[0].key
+        if (!data.results) {
+          {
+            let showVideoID = {
+              videoID: null
+            }
+            this.setState({ showVideo: showVideoID })
+          }
         }
-        this.setState({showVideo: showVideoID})
+        else {
+          let showVideoID = {
+            videoID: data.results[0].key
+          }
+          this.setState({ showVideo: showVideoID })
+        }
       })
-
   }
 
+  // access to player in all event handlers via event.target
   _onReady(event) {
-    // access to player in all event handlers via event.target
     event.target.pauseVideo();
   }
 
+  // toggle into modal and searches for show input
   toggle() {
     this.setState({
       modal: !this.state.modal
@@ -88,16 +99,16 @@ export default class SearchModal extends React.Component {
       <React.Fragment>
         <div>
           <div>
-            <img className="poster-Image" src={`https://image.tmdb.org/t/p/w300${this.props.show.image}`} onClick={this.toggle} alt="tv-poster" style={{cursor: 'pointer'}}/>
+            <img className="poster-Image" src={`https://image.tmdb.org/t/p/w300${this.props.show.image}`} onClick={this.toggle} alt="tv-poster" style={{ cursor: 'pointer' }} />
           </div>
           <Modal className="modal-container modalSize" size="xl" isOpen={this.state.modal} toggle={this.toggle} >
             <ModalBody>
               <div className="detail-group">
                 <div className="image">
-                  <div className="taco">
+                  <div className="posterAndVideoFlex">
                     <img className="detailImage" src={`https://image.tmdb.org/t/p/w300${this.props.show.image}`} alt="tv-poster" />
                     <YouTube
-                      className="detailImage"
+                      className="detailVideo"
                       videoId={this.state.showVideo.videoID}
                       opts={opts}
                       onReady={this._onReady}
@@ -117,7 +128,7 @@ export default class SearchModal extends React.Component {
                   className="showRecommendation"
                   type="text"
                   id="friendRecommendation"
-                  placeholder="Recommend this show to a friend!" />
+                  placeholder="Recommend this show" />
                 <button type="submit" onClick={this.addShow} className="btn btn-primary searchBtn">Submit</button>
               </div>
             </ModalFooter>

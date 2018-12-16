@@ -56,15 +56,25 @@ export default class DetailsModal extends React.Component {
       })
   }
 
-  constructVideoSearch = evt => {
+  constructVideoSearch = () => {
     const url = `https://api.themoviedb.org/3/tv/${this.props.show.apiID}/videos?api_key=71beceaec7947e27f4fa92aadc09db8c&language=en-US`
     return fetch(url)
       .then(data => data.json())
       .then(data => {
-        let showVideoID = {
-          videoID: data.results[0].key
+        if (!data.results) {
+          {
+            let showVideoID = {
+              videoID: null
+            }
+            this.setState({ showVideo: showVideoID })
+          }
         }
-        this.setState({ showVideo: showVideoID })
+        else {
+          let showVideoID = {
+            videoID: data.results[0].key
+          }
+          this.setState({ showVideo: showVideoID })
+        }
       })
   }
 
@@ -93,7 +103,7 @@ export default class DetailsModal extends React.Component {
           <ModalBody>
             <div className="detail-group">
               <div className="image">
-                <div className="taco">
+                <div className="posterAndVideoFlex">
                   <img className="detailImage" src={`https://image.tmdb.org/t/p/w300${this.props.show.image}`} alt="tv-poster" />
                   <YouTube
                     className="detailVideo"

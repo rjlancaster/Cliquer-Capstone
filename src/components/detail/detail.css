@@ -44,7 +44,7 @@
   justify-content: center;
 }
 
-.taco {
+.posterAndVideoFlex {
   display: flex;
   flex-direction: row;
 }

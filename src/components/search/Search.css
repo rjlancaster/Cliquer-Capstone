@@ -41,7 +41,7 @@
   margin-top: 40px;
 }
 
-.taco {
+.posterAndVideoFlex {
   display: flex;
   flex-direction: row;
 }
@@ -82,4 +82,8 @@
 .searchBtn {
   margin-bottom: 6px;
   margin-left: 5px;
+}
+
+.detailVideo {
+  margin: 50px 20px;
 }
