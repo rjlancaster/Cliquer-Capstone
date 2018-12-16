@@ -4,7 +4,6 @@ import { Button } from 'semantic-ui-react'
 import YouTube from 'react-youtube'
 import "./HistoryModal.css"
 import ApiManager from "../../module/ApiManager"
-// import greenchk from "../../images/greenchk"
 
 export default class HistoryModal extends React.Component {
   credentials = JSON.parse(sessionStorage.getItem('credentials'))
@@ -54,15 +53,25 @@ export default class HistoryModal extends React.Component {
       })
   }
 
-  constructVideoSearch = evt => {
+  constructVideoSearch = () => {
     const url = `https://api.themoviedb.org/3/tv/${this.props.show.apiID}/videos?api_key=71beceaec7947e27f4fa92aadc09db8c&language=en-US`
     return fetch(url)
       .then(data => data.json())
       .then(data => {
-        let showVideoID = {
-          videoID: data.results[0].key
+        if (!data.results) {
+          {
+            let showVideoID = {
+              videoID: null
+            }
+            this.setState({ showVideo: showVideoID })
+          }
         }
-        this.setState({ showVideo: showVideoID })
+        else {
+          let showVideoID = {
+            videoID: data.results[0].key
+          }
+          this.setState({ showVideo: showVideoID })
+        }
       })
   }
 
