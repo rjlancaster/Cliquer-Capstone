@@ -36,7 +36,7 @@ export default class ResultsModal extends React.Component {
     return fetch(url)
       .then(data => data.json())
       .then(data => {
-        if (!data.results) {
+        if (!data.results || data.results.length===0) {
           {
             let showVideoID = {
               videoID: null
