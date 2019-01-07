@@ -63,13 +63,6 @@
   ],
   "shows": [
     {
-      "id": 2,
-      "requesterID": 1,
-      "recipientID": 2,
-      "apiID": 4608,
-      "rating": 1
-    },
-    {
       "requesterID": 2,
       "recipientID": 3,
       "apiID": 66573,
@@ -121,15 +114,8 @@
     {
       "requesterID": 1,
       "recipientID": 2,
-      "apiID": 32726,
-      "rating": 0,
-      "id": 36
-    },
-    {
-      "requesterID": 1,
-      "recipientID": 2,
       "apiID": 70453,
-      "rating": 1,
+      "rating": 2,
       "id": 37
     },
     {
@@ -190,13 +176,6 @@
     },
     {
       "requesterID": 1,
-      "recipientID": 4,
-      "apiID": 1405,
-      "rating": 0,
-      "id": 46
-    },
-    {
-      "requesterID": 1,
       "recipientID": 2,
       "apiID": 2710,
       "rating": 0,
@@ -213,7 +192,7 @@
       "requesterID": 2,
       "recipientID": 1,
       "apiID": 70523,
-      "rating": 2,
+      "rating": 1,
       "id": 49
     },
     {
@@ -229,6 +208,48 @@
       "apiID": 51078,
       "rating": 1,
       "id": 51
+    },
+    {
+      "requesterID": 1,
+      "recipientID": 2,
+      "apiID": 32726,
+      "rating": 1,
+      "id": 52
+    },
+    {
+      "requesterID": 1,
+      "recipientID": 5,
+      "apiID": 1425,
+      "rating": 2,
+      "id": 53
+    },
+    {
+      "requesterID": 5,
+      "recipientID": 1,
+      "apiID": 4087,
+      "rating": 2,
+      "id": 54
+    },
+    {
+      "requesterID": 1,
+      "recipientID": 4,
+      "apiID": 63639,
+      "rating": 1,
+      "id": 55
+    },
+    {
+      "requesterID": 1,
+      "recipientID": 2,
+      "apiID": 10283,
+      "rating": 1,
+      "id": 57
+    },
+    {
+      "requesterID": 1,
+      "recipientID": 2,
+      "apiID": 63639,
+      "rating": 2,
+      "id": 58
     }
   ],
   "relationships": [
@@ -253,19 +274,9 @@
       "id": 6
     },
     {
-      "userId": 4,
-      "friendId": 2,
-      "id": 7
-    },
-    {
       "userId": 1,
       "friendId": 4,
       "id": 9
-    },
-    {
-      "userId": 4,
-      "friendId": 1,
-      "id": 5
     },
     {
       "userId": 5,
@@ -321,6 +332,21 @@
       "userId": 2,
       "friendId": 5,
       "id": 16
+    },
+    {
+      "userId": 1,
+      "friendId": 3,
+      "id": 17
+    },
+    {
+      "userId": 4,
+      "friendId": 6,
+      "id": 18
+    },
+    {
+      "userId": 4,
+      "friendId": 8,
+      "id": 19
     }
   ]
 }

@@ -1,12 +1,12 @@
 import React, { Component } from "react"
-// import DataManager from "../../module/DataManager"
-import ResultsModal from "./ResultsModal"
-// import { Button } from 'reactstrap';
+// import ResultsModal from "./ResultsModal"
+import ResultsModal from "../detail/ResultsModal"
 import "./Results.css"
 
 export default class ResultsList extends Component {
   credentials = JSON.parse(sessionStorage.getItem('credentials'))
 
+  // showArray state holds key info for making information in results view and modal functional. See showObject within setRecsList function below
   state = {
     showArray: []
   }
@@ -15,6 +15,7 @@ export default class ResultsList extends Component {
     this.setRecsList()
   }
 
+  // populates state for all shows that have been previously rated
   setRecsList = () => {
     let showArray = []
     this.props.shows.filter((show => this.credentials === show.requesterID))

@@ -16,6 +16,7 @@ export default class ApplicationViews extends Component {
     friendsArray: []
   }
 
+//populate all states on initial load
   componentDidMount() {
     this.getShows()
     this.findFriends(this.credentials)
