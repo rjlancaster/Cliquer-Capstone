@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import SearchList from "./SearchList"
+import SearchModal from "./SearchModal"
 import { Button } from 'semantic-ui-react'
 import "./Search.css"
 
@@ -16,6 +16,7 @@ export default class Search extends Component {
     this.setState(stateToChange)
   }
 
+  // contains search string and populates the selectedShows state with data from the promise
   constructNewSearch = evt => {
     let selectedShows = []
     evt.preventDefault()
@@ -56,7 +57,19 @@ export default class Search extends Component {
             Submit
       </Button>
         </div>
-        <SearchList {...this.props} selectedShow={this.state.selectedShows} />
+        <section className="searchList">
+          {
+            this.state.selectedShows.map(show => {
+              return (<div className="poster-Group" key={show.apiID}>
+                <div>
+                  <SearchModal show={show} {...this.props} />
+                </div>
+              </div>
+              )
+            }
+            )
+          }
+        </section>
       </React.Fragment>
     )
   }

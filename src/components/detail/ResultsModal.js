@@ -20,6 +20,7 @@ export default class ResultsModal extends React.Component {
     this.toggle = this.toggle.bind(this);
   }
 
+  // removes show from DB
   removeShow = () => {
     ApiManager.deleteData("shows", this.props.show.showId)
       .then(() => this.props.getShows())
@@ -29,30 +30,7 @@ export default class ResultsModal extends React.Component {
       })
   }
 
-  upVote = () => {
-    const upVote = {
-      rating: 1
-    }
-    ApiManager.editData("shows", this.props.show.showId, upVote)
-      .then(() => this.props.getShows())
-      .then(this.setState({ modal: !this.state.modal })
-      ).then(() => {
-        this.props.history.push("/history")
-      })
-  }
-
-  downVote = () => {
-    const downVote = {
-      rating: 2
-    }
-    ApiManager.editData("shows", this.props.show.showId, downVote)
-      .then(() => this.props.getShows())
-      .then(this.setState({ modal: !this.state.modal })
-      ).then(() => {
-        this.props.history.push("/history")
-      })
-  }
-
+  // finds YouTube id needed for show in order for youtube component to work.
   constructVideoSearch = () => {
     const url = `https://api.themoviedb.org/3/tv/${this.props.show.apiID}/videos?api_key=71beceaec7947e27f4fa92aadc09db8c&language=en-US`
     return fetch(url)
@@ -94,14 +72,14 @@ export default class ResultsModal extends React.Component {
     return (
       <div>
         <div className="posterImageDiv">
-          <img src={`https://image.tmdb.org/t/p/w185${this.props.show.image}`} onClick={this.toggle} alt="tv-poster" style={{cursor: 'pointer'}} />
+          <img src={`https://image.tmdb.org/t/p/w185${this.props.show.image}`} onClick={this.toggle} alt="tv-poster" style={{ cursor: 'pointer' }} />
           <img className={this.props.show.greenchk} src={require('./greenchk.png')} alt="greenchk" />
           <img className={this.props.show.redx} src={require('./redx.png')} alt="redx" />
         </div>
         <Modal className="modal-container modalSize" size="xl" isOpen={this.state.modal} toggle={this.toggle} >
           <ModalBody>
             <div className="detail-group">
-            <div className="image">
+              <div className="image">
                 <div className="posterAndVideoFlex">
                   <img className="detailImage" src={`https://image.tmdb.org/t/p/w300${this.props.show.image}`} alt="tv-poster" />
                   <YouTube
@@ -121,11 +99,7 @@ export default class ResultsModal extends React.Component {
           <ModalFooter className="footer">
             <div>
               <Button.Group>
-                <Button color="green" onClick={this.upVote}>Love It</Button>
-                <Button.Or />
-                <Button color="black" onClick={this.downVote}>Hate It</Button>
-                <Button.Or />
-                <Button color="grey" onClick={this.removeShow}>Toss It</Button>
+                <Button color="grey" onClick={this.removeShow}>Delete</Button>
               </Button.Group>
             </div>
           </ModalFooter>

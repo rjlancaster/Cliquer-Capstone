@@ -5,6 +5,7 @@ import "./Recs.css"
 export default class RecsList extends Component {
   credentials = parseInt(sessionStorage.getItem('credentials'))
 
+    // showArray state holds key info for making information in results view and modal functional. See showObject within setRecsList function below
   state = {
     showArray: [],
   }
@@ -13,6 +14,7 @@ export default class RecsList extends Component {
     this.setRecsList()
   }
 
+   // populates state for all shows that have not been rated
   setRecsList = () =>  {
     let showArray = []
     this.props.shows.filter((show => this.credentials === show.recipientID))

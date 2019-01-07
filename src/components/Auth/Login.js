@@ -73,9 +73,6 @@ body > div > div > div.login-form {
           <Grid.Column style={{ maxWidth: 450 }}>
             <Header color='red' textAlign='center' size="huge">
             </Header>
-            <div className="cheeseIcon">
-              {/* <Image src={CurdNurd} size='large' /> */}
-            </div>
             <Form className="loginForm" size='large' onSubmit={this.handleLogin}>
               <Segment stacked>
                 <Form.Input onChange={this.handleFieldChange} type="username"
@@ -100,32 +97,10 @@ body > div > div > div.login-form {
                   Register
                 </Button>
               </Segment>
-
-              {/* <Message>
-                 Did You Know?
-                 <br></br>
-                 <br></br>
-                The art of cheese making is 7500+ years old!
-                </Message> */}
             </Form>
-
           </Grid.Column>
         </Grid>
       </div>
     )
   }
 }
-
-// return <form className="loginForm">
-//     <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
-//     <label htmlFor="inputUsername">Username</label>
-//     <input onChange={this.handleFieldChange} type="username" id="username" placeholder="Username" required="" autoFocus="" />
-//     <label htmlFor="inputPassword">Password</label>
-//     <input onChange={this.handleFieldChange} type="password" id="password" placeholder="Password" required="" />
-//     <button type="submit" onClick={this.handleLogin}>
-//       Sign in
-//     </button>
-//     <button type="submit" onClick={this.handleRegister}>
-//       Register
-//     </button>
-//   </form>

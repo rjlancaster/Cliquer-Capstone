@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import HistoryModal from "./HistoryModal"
+import ResultsModal from "../detail/ResultsModal"
 import "./History.css"
 
 export default class RecsList extends Component {
@@ -59,7 +59,7 @@ export default class RecsList extends Component {
           this.state.showArray.map(show => {
             return (<div key={show.id} className="posterGroup" >
               <div>
-                <HistoryModal show={show} setRecsList={this.setRecsList} {...this.props} />
+                <ResultsModal show={show} setRecsList={this.setRecsList} {...this.props} />
               </div>
               <div className="posterFooter">
                   From {show.senderID}
@@ -73,38 +73,3 @@ export default class RecsList extends Component {
     )
   }
 }
-
-
-
-
-
-
-
-
-// createMarkup() {
-//   if (this.props.show.rating === 1) {
-//     return {
-//       __html: <img class="ratingImg" src={require('./greenchk.png')} alt="greenchk" />
-//     }
-//   }
-//   else if (this.props.show.rating === 2) {
-//     return {
-//       __html: <img class="ratingImg" src={require('./redx.png')} alt="redx"
-//       />
-//     }
-//   }
-// }
-
-// setRating() {
-//   return <div dangerouslySetInnerHTML={this.createMarkup()} />
-// }
-
-  // state = {
-  //   showCheck: "hidden",
-  //   showX: "hidden"
-  // }
-
-  // componentDidMount = () => {
-  //   this.toggleCheck()
-  //   this.toggleX()
-  // }
