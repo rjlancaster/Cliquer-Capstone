@@ -7,16 +7,16 @@
 ----
 Watch a short demo video here: https://www.youtube.com/watch?v=YLcDpdqUuvM
 
-![CliquerScreenshot1](https://github.com/rjlancaster/Cliquer-Capstone/src/images/ScreenShot1.png)
+![CliquerScreenshot1](/src/images/ScreenShot1.png)
 
-![CliquerScreenshot2](https://github.com/rjlancaster/Cliquer-Capstone/src/images/ScreenShot2.png))
+![CliquerScreenshot2](/src/images/ScreenShot2.png))
 
 ## What technologies went into this?
 
 >  ReactJS | Javascript | CSS | Semantic UI React | React Youtube | JSON-Server | TheMovieDB.org API
 
 ## My ERD for this project
-![ERD](https://github.com/rjlancaster/Cliquer-Capstone/src/images/ERD.png)
+![ERD](/src/images/ERD.png)
 
 ---
 
