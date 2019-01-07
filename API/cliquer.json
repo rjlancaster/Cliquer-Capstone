@@ -250,6 +250,13 @@
       "apiID": 63639,
       "rating": 2,
       "id": 58
+    },
+    {
+      "requesterID": 1,
+      "recipientID": 2,
+      "apiID": 13169,
+      "rating": 2,
+      "id": 59
     }
   ],
   "relationships": [
