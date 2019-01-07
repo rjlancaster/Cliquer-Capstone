@@ -1,5 +1,4 @@
 import React, { Component } from "react"
-// import ResultsModal from "./ResultsModal"
 import ResultsModal from "../detail/ResultsModal"
 import "./Results.css"
 

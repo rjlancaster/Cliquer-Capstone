@@ -1,5 +1,4 @@
 import React, { Component } from "react"
-// import HistoryModal from "./HistoryModal"
 import ResultsModal from "../detail/ResultsModal"
 import "./History.css"
 
