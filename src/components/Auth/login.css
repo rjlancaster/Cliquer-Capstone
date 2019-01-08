@@ -1,9 +1,19 @@
-
 .login-form {
   padding: 0 25px;
+  background-image: url("../../");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
   justify-content: center;
 }
 
 .formLabel {
   padding: 3px;
+}
+
+.logo {
+  width: 400px;
+  height: 400px;
+  display: block;
+  margin: 0 auto;
 }
