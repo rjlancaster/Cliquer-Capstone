@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import ApiManager from "../../module/ApiManager"
-import { Button, Form, Grid, Header, Segment, Divider } from 'semantic-ui-react'
+import { Button, Form, Grid, Header, Image, Segment, Divider } from 'semantic-ui-react'
+import Logo from "../../images/Cliquerlogo.png"
 import "./login.css"
 
 export default class Login extends Component {
@@ -73,6 +74,9 @@ body > div > div > div.login-form {
           <Grid.Column style={{ maxWidth: 450 }}>
             <Header color='red' textAlign='center' size="huge">
             </Header>
+            <div className='logo'>
+            <Image src={Logo} size='Small' />
+            </div>
             <Form className="loginForm" size='large' onSubmit={this.handleLogin}>
               <Segment stacked>
                 <Form.Input onChange={this.handleFieldChange} type="username"
