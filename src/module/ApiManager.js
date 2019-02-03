@@ -1,4 +1,5 @@
-const localURL = "http://localhost:5002"
+// const localURL = "http://localhost:5002"
+const localURL = "https://cliquer-json.herokuapp.com"
 const remoteSearchURL = `https://api.themoviedb.org/3/search/multi?api_key=71beceaec7947e27f4fa92aadc09db8c&language=en-US&include_adult=false&query=`
 const apiKey = "71beceaec7947e27f4fa92aadc09db8"
 const localtoremoteSearchURL = `https://api.themoviedb.org/3/tv/`

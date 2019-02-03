@@ -59,6 +59,11 @@
       "username": "Mike",
       "password": "123",
       "id": 12
+    },
+    {
+      "username": "test",
+      "password": "123",
+      "id": 13
     }
   ],
   "shows": [
@@ -257,6 +262,13 @@
       "apiID": 13169,
       "rating": 2,
       "id": 59
+    },
+    {
+      "requesterID": 1,
+      "recipientID": 5,
+      "apiID": 60625,
+      "rating": 1,
+      "id": 60
     }
   ],
   "relationships": [
