@@ -63,13 +63,13 @@ export default class Login extends Component {
   render() {
     return (
       <div className='login-form'>
-        <style>{`
+        {/* <style>{`
 body > div,
 body > div > div,
 body > div > div > div.login-form {
-  height: 100%;
+  height: 0%;
 }
-`}</style>
+`}</style> */}
         <Grid textAlign='center' style={{ height: '100%' }} verticalAlign='middle'>
           <Grid.Column style={{ maxWidth: 450 }}>
             <Header color='red' textAlign='center' size="huge">
